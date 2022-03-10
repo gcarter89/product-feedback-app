@@ -6,24 +6,34 @@ body {
 
 h1 {
     font-size: 24px;
+    font-weight: 700;
     letter-spacing: -0.33px;
     line-height: 35px;
 }
 
 h2 {
     font-size: 20px;
+    font-weight: 700;
     letter-spacing: -0.25px;
     line-height: 29px;
 }
 
 h3 {
     font-size: 18px;
+    font-weight: 700;
     letter-spacing: -0.25px;
     line-height: 26px;
 }
 
 h4 {
     font-size: 14px;
+    font-weight: 700;
     letter-spacing: -0.2px;
     line-height: 20px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: 400;
 }
