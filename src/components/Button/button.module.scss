@@ -25,6 +25,7 @@ $radius: (
 );
 
 .button {
+    cursor: pointer;
     &_text {
         text-align: center;
     }
@@ -44,7 +45,16 @@ $radius: (
         
         &__#{$type}:hover {
             background-color: $hoverColor;
+            @if $type == "foxtrot" {
+                text-decoration: underline;
+            }
+
+            @if $type == "epsilon" {
+                text-decoration: underline;
+            }
         }
+
+        
     }
 
     @each $type, $color in $textColors {

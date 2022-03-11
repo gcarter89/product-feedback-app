@@ -1,10 +1,11 @@
 import './App.scss';
-import Button from './components/Button';
+import Header from './components/Header/Header.js';
 
 function App() {
   return (
     <div className="App">
-        <Button />
+        <Header />
+        {/* <Button backgroundColor='foxtrot' textColor='dark' size='small' /> */}
     </div>
   );
 }

@@ -4,6 +4,7 @@ export default function Button({backgroundColor = 'alpha', textColor = 'neutral'
 
     return (
         <button className={
+            styles.button + ' ' +
             styles[`button__${backgroundColor}`] + ' ' +
             styles[`button__${textColor}`] + ' ' +
             styles[`button__${size}`] + ' ' +
