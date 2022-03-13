@@ -1,4 +1,12 @@
 .subheader {
+    display: flex;
     height: 56px;
     background-color: #373F68;
+    color: #F2F4FE;
+    align-items: center;
+    &_dropdown {
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+    }
 }
