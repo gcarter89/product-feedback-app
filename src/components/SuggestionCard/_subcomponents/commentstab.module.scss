@@ -1,0 +1,9 @@
+.commentsTab {
+    display: flex;
+    cursor: pointer;
+    &_text {
+        font-size: 13px;
+        font-weight: 700;
+        margin-left: 6px;
+    }
+}

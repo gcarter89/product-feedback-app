@@ -1,0 +1,31 @@
+.suggestionCard {
+    height: fit-content;
+    width: 327px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    padding: 24px;
+
+    &_bodyText {
+        color: #647196;
+        margin-bottom: 8px;
+    }
+
+    &_header {
+        margin-bottom: 8px;
+    }
+
+    &_commentsUpvotes {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 16px;
+    }
+}
+
+.suggestionCard:last-of-type {
+    margin-bottom: 56px;
+  }

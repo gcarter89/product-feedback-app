@@ -1,0 +1,16 @@
+.upvoteTab {
+    width: fit-content;
+    min-width: 32px;
+    border-radius: 10px;
+    background-color: #F2F4FF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px 13px 5px 16px;
+    cursor: pointer;
+    &_text {
+        font-size: 13px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+}
