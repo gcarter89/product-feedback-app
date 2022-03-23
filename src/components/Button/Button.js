@@ -1,4 +1,4 @@
-import styles from '../styles/button.module.scss';
+import styles from './button.module.scss';
 
 export default function Button({backgroundColor = 'alpha', textColor = 'neutral', size = 'regular', radius = 'curved'}) {
 

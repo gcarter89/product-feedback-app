@@ -4,6 +4,7 @@
     background-color: #373F68;
     color: #F2F4FE;
     align-items: center;
+    justify-content: space-between;
     padding: 0 24px;
     &_selectedOption {
         display: flex;
@@ -13,28 +14,19 @@
     &_selector {
         cursor: pointer;
     }
-    // &_selectionMenu {
-    //     width: 255px;
-    //     position: absolute;
-    //     list-style: none;
-    //     top: 50px;
-    //     box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
-    //     border-radius: 10px;
-    //     padding: 0;
-    //     li {
-    //         color: #647196;
-    //         display: flex;
-    //         padding: 12px 24px;
-    //         cursor: pointer;
-    //         align-items: center;
-    //         justify-content: space-between;
-    //     }
-    //     li:hover {
-    //         color: #AD1FEA;
-    //     }
 
-    //     li:not(:last-child) {
-    //         border-bottom: 1px solid rgba(58, 67, 116, 0.15);
-    //     }
-    // }
+    &_button {
+        cursor: pointer;
+        height: 40px;
+        width: 134px;
+        background-color: #AD1FEA;
+        border-radius: 10px;
+        text-align: center;
+        //this will be modified once the button component is created... it will be an element
+        h4 {
+            font-size: 13px;
+        }
+        
+
+    }
 }

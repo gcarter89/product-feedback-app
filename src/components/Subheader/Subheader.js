@@ -1,7 +1,8 @@
 import styles from './subheader.module.scss';
 import {ReactComponent as UpIcon} from '../../assets/shared/icon-arrow-down.svg';
+import {ReactComponent as PlusIcon} from '../../assets/shared/icon-plus.svg';
 import { useState } from 'react';
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown from '../Dropdown/Dropdown.js';
 
 export default function Subheader() {
 
@@ -22,21 +23,11 @@ export default function Subheader() {
                 <p className='_body3'>Sort by : <strong className={styles.subheader_selector} onClick={() => setIsFilterOpen(!isFilterOpen)}>{filterList[selectedIndex]} <UpIcon /></strong></p>
                 {isFilterOpen &&
                     <Dropdown selectionArr={filterList} selectedIndex={selectedIndex} selectHandler={handleClick} />
-                    /* <ul className={styles.subheader_selectionMenu}>
-                        {filterList.map((elem, index) => {
-                            return (
-                                <li key={index} onClick={(e) => handleClick(e, index)}>
-                                    {selectedIndex === index ? 
-                                        <><p  className='_body1'>{elem}</p> <CheckIcon /></>
-                                        : <p className='_body1'>{elem}</p>}
-                                    
-                                    
-                                </li>
-                            )
-                        })}
-                    </ul> */
-                    }
+                }
             </div>
+            <button className={styles.subheader_button}>
+                    <h4><PlusIcon /> Add Feedback</h4>
+            </button>
         </div>
     )
 }
