@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
 
     function upvoteCompare( a, b ) {
         if ( a.upvotes > b.upvotes ){
@@ -19,20 +19,51 @@ function App() {
         return 0;
       }
 
-      function upvoteCompareReverse( a, b ) {
-        if ( a.upvotes < b.upvotes ){
+    function upvoteCompareReverse(a, b) {
+        if (a.upvotes < b.upvotes){
           return -1;
         }
-        if ( a.upvotes > b.upvotes ){
+        if (a.upvotes > b.upvotes ){
           return 1;
         }
         return 0;
       }
 
+    function commentsCompare(a, b) {
+        if (!a.comments) {
+            return 1
+        }
 
+        if (!b.comments) {
+            return -1;
+        }
 
+        if (a.comments?.length < b.comments?.length) {
+            return 1
+        }
+        if (a.comments?.length > b.comments?.length) {
+            return -1;
+        }
+        return 0;
+    }
 
+    function commentsCompareReverse(a, b) {
+        if (!a.comments) {
+            return -1
+        }
 
+        if (!b.comments) {
+            return 1;
+        }
+
+        if (a.comments?.length < b.comments?.length) {
+            return -1
+        }
+        if (a.comments?.length > b.comments?.length) {
+            return 1;
+        }
+        return 0;
+    }
 
     useEffect(() => {
 
@@ -47,9 +78,13 @@ function App() {
                 break;
 
             case 2:
+                const sortedCommentsAsc = [...jsonData.productRequests].sort(commentsCompare);
+                setData(sortedCommentsAsc);
                 break;
 
             case 3:
+                const sortedCommentsDesc = [...jsonData.productRequests].sort(commentsCompareReverse);
+                setData(sortedCommentsDesc);
             break;
         
             default:
@@ -57,6 +92,7 @@ function App() {
         }
     }, [selectedIndex]);
 
+    console.log(data);
 
     return (
         <div className="App">
