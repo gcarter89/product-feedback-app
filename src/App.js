@@ -3,67 +3,12 @@ import Header from './components/Header/Header.js';
 import Subheader from './components/Subheader/Subheader';
 import SuggestionCards from './components/SuggestionCards/SuggestionCards.js';
 import jsonData from './assets/data.json';
+import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareReverse  } from './helpers/sortFunctions';
 import { useEffect, useState } from 'react';
 
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [data, setData] = useState([]);
-
-    function upvoteCompare( a, b ) {
-        if ( a.upvotes > b.upvotes ){
-          return -1;
-        }
-        if ( a.upvotes < b.upvotes ){
-          return 1;
-        }
-        return 0;
-      }
-
-    function upvoteCompareReverse(a, b) {
-        if (a.upvotes < b.upvotes){
-          return -1;
-        }
-        if (a.upvotes > b.upvotes ){
-          return 1;
-        }
-        return 0;
-      }
-
-    function commentsCompare(a, b) {
-        if (!a.comments) {
-            return 1
-        }
-
-        if (!b.comments) {
-            return -1;
-        }
-
-        if (a.comments?.length < b.comments?.length) {
-            return 1
-        }
-        if (a.comments?.length > b.comments?.length) {
-            return -1;
-        }
-        return 0;
-    }
-
-    function commentsCompareReverse(a, b) {
-        if (!a.comments) {
-            return -1
-        }
-
-        if (!b.comments) {
-            return 1;
-        }
-
-        if (a.comments?.length < b.comments?.length) {
-            return -1
-        }
-        if (a.comments?.length > b.comments?.length) {
-            return 1;
-        }
-        return 0;
-    }
 
     useEffect(() => {
 
@@ -91,8 +36,6 @@ function App() {
                 break;
         }
     }, [selectedIndex]);
-
-    console.log(data);
 
     return (
         <div className="App">
