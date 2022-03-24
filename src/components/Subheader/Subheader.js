@@ -4,12 +4,12 @@ import {ReactComponent as PlusIcon} from '../../assets/shared/icon-plus.svg';
 import { useState } from 'react';
 import Dropdown from '../Dropdown/Dropdown.js';
 
-export default function Subheader() {
+export default function Subheader({selectedIndex, setSelectedIndex}) {
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const [selectedIndex, setSelectedIndex] = useState(0);
 
-    const filterList = ['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'];
+    const dropdownList = ['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'];
+
 
     function handleClick(event, index) {
         event.preventDefault();
@@ -20,9 +20,9 @@ export default function Subheader() {
     return (
         <div className={styles.subheader}>
             <div className={styles.subheader_selectedOption}>
-                <p className='_body3'>Sort by : <strong className={styles.subheader_selector} onClick={() => setIsFilterOpen(!isFilterOpen)}>{filterList[selectedIndex]} <UpIcon /></strong></p>
+                <p className='_body3'>Sort by : <strong className={styles.subheader_selector} onClick={() => setIsFilterOpen(!isFilterOpen)}>{dropdownList[selectedIndex]} <UpIcon /></strong></p>
                 {isFilterOpen &&
-                    <Dropdown selectionArr={filterList} selectedIndex={selectedIndex} selectHandler={handleClick} />
+                    <Dropdown selectionArr={dropdownList} selectedIndex={selectedIndex} selectHandler={handleClick} />
                 }
             </div>
             <button className={styles.subheader_button}>

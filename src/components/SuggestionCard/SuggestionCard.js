@@ -3,7 +3,6 @@ import CategoryTab from './_subcomponents/CategoryTab'
 import CommentsTab from './_subcomponents/CommentsTab'
 import UpvoteTab from './_subcomponents/UpvoteTab'
 export default function SuggestionCard({ data }) {
-    console.log(data);
 
     return (
 
