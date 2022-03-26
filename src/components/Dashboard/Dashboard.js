@@ -1,13 +1,13 @@
 import styles from './dashboard.module.scss';
 
 export default function Dashboard() {
-
     return (
-        <div className={styles.dashboard}>
-            <div className={styles.dashboard_card}>
-                <div></div>
-                <div></div>
+        <div className={styles.overlay}>
+            <div className={styles.dashboard}>
+                <div className={styles.dashboard_card}></div>
+                <div className={styles.dashboard_card}></div>
             </div>
         </div>
+
     )
 }
