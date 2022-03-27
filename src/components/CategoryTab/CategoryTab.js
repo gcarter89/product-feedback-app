@@ -1,4 +1,4 @@
-import capitaliseFirstLetter from '../../../helpers/capitaliseFirstLetter'
+import capitaliseFirstLetter from '../../helpers/capitaliseFirstLetter.js';
 import styles from './categorytab.module.scss'
 
 export default function CategoryTab({category}) {
