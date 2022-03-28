@@ -7,6 +7,7 @@ export default function Main({data, dashboardOpen, selectedCategory, setSelected
     featureArray.push(...data.map(elem => { return elem.category }));
     featureArray = [...new Set(featureArray)];
 
+    
 
     return (
         <main className={styles.main}>

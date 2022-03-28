@@ -17,7 +17,9 @@ function App() {
         if (selectedCategory === 'all') {
             return setData(jsonData.productRequests)
         }
+
         const result = jsonData.productRequests.filter(elem => elem.category === selectedCategory);
+        
         setData(result);
 
     }, [selectedCategory])
@@ -28,18 +30,19 @@ function App() {
             case 0:
                 setData(prevState => ([...prevState].sort(upvoteCompare)))
                 break;
+                
             case 1:
-
                 setData(prevState => ([...prevState].sort(upvoteCompareReverse)));
-
                 break;
 
             case 2:
                 setData(prevState => ([...prevState].sort(commentsCompare)));
                 break;
+
             case 3:
                 setData(prevState => ([...prevState].sort(commentsCompareReverse)))
             break;
+
             default:
                 break;
         }
