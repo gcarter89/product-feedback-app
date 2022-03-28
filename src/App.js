@@ -10,8 +10,9 @@ function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [data, setData] = useState(jsonData.productRequests);
     const [dashboardOpen, setDashboardOpen] = useState(false);
-
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [roadmapVisible, setRoadmapVisible] = useState(false);
+    console.log(jsonData);
 
     useEffect(() => {
         if (selectedCategory === 'all') {
@@ -52,7 +53,14 @@ function App() {
         <div className="App">
             <Header dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
             <Subheader selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
-            <Main data={data} dashboardOpen={dashboardOpen} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+            <Main
+                data={data}
+                dashboardOpen={dashboardOpen}
+                setDashboardOpen={setDashboardOpen}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                roadmapVisible={roadmapVisible}
+                setRoadmapVisible={setRoadmapVisible} />
         </div>
     );
 }

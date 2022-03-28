@@ -1,7 +1,15 @@
 import styles from './dashboard.module.scss';
 import CategoryButton from '../CategoryButton/CategoryButton.js'
 
-export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory}) {
+export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen}) {
+    
+    function handleClick(event) {
+        event.preventDefault();
+        console.log('clicked')
+        setRoadmapVisible(true);
+        setDashboardOpen(false);
+    }
+
     return (
         <div className={styles.overlay}>
             <div className={styles.dashboard}>
@@ -15,7 +23,7 @@ export default function Dashboard({featureArray = [], selectedCategory, setSelec
                 <div className={styles.dashboard_roadmapCard}>
                     <div className={styles.dashboard_roadmapHeading}>
                         <h3 className={styles.dashboard_roadmapHeading_heading}>Roadmap</h3>
-                        <p className={styles.dashboard_roadmapHeading_link}>View</p>
+                        <button onClick={(e) => handleClick(e)} className={styles.dashboard_roadmapHeading_link}>View</button>
                     </div>
 
                     <ul className={styles.dashboard_roadmapList}>
