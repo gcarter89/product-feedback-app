@@ -1,104 +1,65 @@
 import './App.scss';
 import Header from './components/Header/Header.js';
 import Subheader from './components/Subheader/Subheader';
-import SuggestionCards from './components/SuggestionCards/SuggestionCards.js';
 import jsonData from './assets/data.json';
+import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareReverse  } from './helpers/sortFunctions';
 import { useEffect, useState } from 'react';
+import Main from './components/Main/Main';
 
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [data, setData] = useState([]);
-
-    function upvoteCompare( a, b ) {
-        if ( a.upvotes > b.upvotes ){
-          return -1;
-        }
-        if ( a.upvotes < b.upvotes ){
-          return 1;
-        }
-        return 0;
-      }
-
-    function upvoteCompareReverse(a, b) {
-        if (a.upvotes < b.upvotes){
-          return -1;
-        }
-        if (a.upvotes > b.upvotes ){
-          return 1;
-        }
-        return 0;
-      }
-
-    function commentsCompare(a, b) {
-        if (!a.comments) {
-            return 1
-        }
-
-        if (!b.comments) {
-            return -1;
-        }
-
-        if (a.comments?.length < b.comments?.length) {
-            return 1
-        }
-        if (a.comments?.length > b.comments?.length) {
-            return -1;
-        }
-        return 0;
-    }
-
-    function commentsCompareReverse(a, b) {
-        if (!a.comments) {
-            return -1
-        }
-
-        if (!b.comments) {
-            return 1;
-        }
-
-        if (a.comments?.length < b.comments?.length) {
-            return -1
-        }
-        if (a.comments?.length > b.comments?.length) {
-            return 1;
-        }
-        return 0;
-    }
+    const [data, setData] = useState(jsonData.productRequests);
+    const [dashboardOpen, setDashboardOpen] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [roadmapVisible, setRoadmapVisible] = useState(false);
 
     useEffect(() => {
+        if (selectedCategory === 'all') {
+            return setData(jsonData.productRequests)
+        }
 
+        const result = jsonData.productRequests.filter(elem => elem.category === selectedCategory);
+        
+        setData(result);
+
+    }, [selectedCategory])
+
+
+    useEffect(() => {
         switch (selectedIndex) {
             case 0:
-                const sortedUpvotesAsc = [...jsonData.productRequests].sort(upvoteCompare);
-                setData(sortedUpvotesAsc)
+                setData(prevState => ([...prevState].sort(upvoteCompare)))
                 break;
+                
             case 1:
-                const sortedUpvotesDesc = [...jsonData.productRequests].sort(upvoteCompareReverse);
-                setData(sortedUpvotesDesc);
+                setData(prevState => ([...prevState].sort(upvoteCompareReverse)));
                 break;
 
             case 2:
-                const sortedCommentsAsc = [...jsonData.productRequests].sort(commentsCompare);
-                setData(sortedCommentsAsc);
+                setData(prevState => ([...prevState].sort(commentsCompare)));
                 break;
 
             case 3:
-                const sortedCommentsDesc = [...jsonData.productRequests].sort(commentsCompareReverse);
-                setData(sortedCommentsDesc);
+                setData(prevState => ([...prevState].sort(commentsCompareReverse)))
             break;
-        
+
             default:
                 break;
         }
-    }, [selectedIndex]);
-
-    console.log(data);
+    }, [selectedIndex, selectedCategory]);
 
     return (
         <div className="App">
-            <Header />
+            <Header dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
             <Subheader selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
-            <SuggestionCards data={data} />
+            <Main
+                data={data}
+                dashboardOpen={dashboardOpen}
+                setDashboardOpen={setDashboardOpen}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+                roadmapVisible={roadmapVisible}
+                setRoadmapVisible={setRoadmapVisible} />
         </div>
     );
 }

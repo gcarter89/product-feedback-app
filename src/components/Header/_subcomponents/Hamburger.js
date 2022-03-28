@@ -1,19 +1,17 @@
 import {ReactComponent as Open } from '../../../assets/shared/mobile/icon-hamburger.svg';
 import {ReactComponent as Close } from '../../../assets/shared/mobile/icon-close.svg';
-import { useState } from 'react';
 
-export default function Hamburger() {
-    const [open, setOpen] = useState(true);
+export default function Hamburger({dashboardOpen, setDashboardOpen}) {
 
     function handleClick(event) {
         event.preventDefault();
-        setOpen(!open);
+        setDashboardOpen(!dashboardOpen);
     }
 
     return (
         <>
-            {open && <Open onClick={(e) => handleClick(e)} />}
-            {!open && <Close onClick={(e) => handleClick(e)} />}
+            {!dashboardOpen && <Open onClick={(e) => handleClick(e)} />}
+            {dashboardOpen && <Close onClick={(e) => handleClick(e)} />}
         </>
     )
 }

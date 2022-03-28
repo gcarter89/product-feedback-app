@@ -1,9 +1,11 @@
+import styles from './suggestioncards.module.scss'
 import SuggestionCard from "../SuggestionCard/SuggestionCard.js";
+import EmptyCard from '../EmptyCard/EmptyCard.js';
 
-export default function SuggestionCards({ data }) {
-    if (!data) {
+export default function SuggestionCards({ data, dashboardOpen }) {
+    if (!data || data.length === 0) {
         return (
-            <h1>Poop</h1>
+            <EmptyCard />
         )
     }
     const children = data.map((elem, index) => {
@@ -13,8 +15,8 @@ export default function SuggestionCards({ data }) {
     })
 
     return (
-        <>
+        <div className={dashboardOpen ? styles.suggestionCards__dashboardOpen : undefined}>
             {children}
-        </>
+        </div>
     )
 }
