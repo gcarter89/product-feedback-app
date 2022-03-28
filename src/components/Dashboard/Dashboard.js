@@ -1,17 +1,16 @@
 import styles from './dashboard.module.scss';
-import CategoryTab from '../CategoryTab/CategoryTab.js'
+import CategoryButton from '../CategoryButton/CategoryButton.js'
 
-export default function Dashboard() {
+export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory}) {
     return (
         <div className={styles.overlay}>
             <div className={styles.dashboard}>
                 <div className={styles.dashboard_categoryCard}>
-                    <CategoryTab category='All' />
-                    <CategoryTab category='UI' />
-                    <CategoryTab category='UX' />
-                    <CategoryTab category='Enhancement' />
-                    <CategoryTab category='Bug' />
-                    <CategoryTab category='Feature' />
+                    {featureArray.map((elem, index) => {
+                        return (
+                            selectedCategory === elem ? <CategoryButton key={index} category={elem} selected={true} setSelectedCategory={setSelectedCategory} /> : <CategoryButton key={index} category={elem} setSelectedCategory={setSelectedCategory} />
+                        )
+                    })}
                 </div>
                 <div className={styles.dashboard_roadmapCard}>
                     <div className={styles.dashboard_roadmapHeading}>

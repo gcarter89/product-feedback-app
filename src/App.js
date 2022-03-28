@@ -8,41 +8,48 @@ import Main from './components/Main/Main';
 
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(jsonData.productRequests);
     const [dashboardOpen, setDashboardOpen] = useState(false);
 
-    useEffect(() => {
+    const [selectedCategory, setSelectedCategory] = useState('all');
 
+    useEffect(() => {
+        if (selectedCategory === 'all') {
+            return setData(jsonData.productRequests)
+        }
+        const result = jsonData.productRequests.filter(elem => elem.category === selectedCategory);
+        setData(result);
+
+    }, [selectedCategory])
+
+
+    useEffect(() => {
         switch (selectedIndex) {
             case 0:
-                const sortedUpvotesAsc = [...jsonData.productRequests].sort(upvoteCompare);
-                setData(sortedUpvotesAsc)
+                setData(prevState => ([...prevState].sort(upvoteCompare)))
                 break;
             case 1:
-                const sortedUpvotesDesc = [...jsonData.productRequests].sort(upvoteCompareReverse);
-                setData(sortedUpvotesDesc);
+
+                setData(prevState => ([...prevState].sort(upvoteCompareReverse)));
+
                 break;
 
             case 2:
-                const sortedCommentsAsc = [...jsonData.productRequests].sort(commentsCompare);
-                setData(sortedCommentsAsc);
+                setData(prevState => ([...prevState].sort(commentsCompare)));
                 break;
-
             case 3:
-                const sortedCommentsDesc = [...jsonData.productRequests].sort(commentsCompareReverse);
-                setData(sortedCommentsDesc);
+                setData(prevState => ([...prevState].sort(commentsCompareReverse)))
             break;
-        
             default:
                 break;
         }
-    }, [selectedIndex]);
+    }, [selectedIndex, selectedCategory]);
 
     return (
         <div className="App">
             <Header dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
             <Subheader selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
-            <Main data={data} dashboardOpen={dashboardOpen} />
+            <Main data={data} dashboardOpen={dashboardOpen} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
         </div>
     );
 }

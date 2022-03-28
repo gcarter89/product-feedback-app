@@ -1,0 +1,21 @@
+.categoryButton {
+    height: fit-content;
+    width: fit-content;
+    padding: 5px 16px;
+    background-color: #F2F4FF;
+    border-radius: 10px;
+    color: #4661E6;
+    cursor: pointer;
+    &_text {
+        font-weight: 600;
+    }
+    &__selected {
+        height: fit-content;
+        width: fit-content;
+        padding: 5px 16px;
+        background-color: #4661E6;
+        border-radius: 10px;
+        color: #F2F4FF;
+        cursor: pointer;
+    }
+}
