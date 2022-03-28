@@ -1,6 +1,5 @@
 import './App.scss';
 import Header from './components/Header/Header.js';
-import Subheader from './components/Subheader/Subheader';
 import jsonData from './assets/data.json';
 import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareReverse  } from './helpers/sortFunctions';
 import { useEffect, useState } from 'react';
@@ -50,8 +49,15 @@ function App() {
 
     return (
         <div className="App">
-            <Header dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
-            <Subheader selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
+            <Header
+                dashboardOpen={dashboardOpen}
+                setDashboardOpen={setDashboardOpen}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+                roadmapVisible={roadmapVisible}
+                setRoadmapVisible={setRoadmapVisible}
+
+            />
             <Main
                 data={data}
                 dashboardOpen={dashboardOpen}
@@ -59,7 +65,8 @@ function App() {
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
                 roadmapVisible={roadmapVisible}
-                setRoadmapVisible={setRoadmapVisible} />
+                setRoadmapVisible={setRoadmapVisible} 
+            />
         </div>
     );
 }
