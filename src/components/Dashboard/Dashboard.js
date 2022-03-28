@@ -1,11 +1,13 @@
 import styles from './dashboard.module.scss';
 import CategoryButton from '../CategoryButton/CategoryButton.js'
 
-export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen}) {
+export default function Dashboard({data, featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen}) {
     
+    //to-do generate counts for different productreview statuses
+    console.log(data.filter(elem => elem.status === 'planned').length)
+
     function handleClick(event) {
         event.preventDefault();
-        console.log('clicked')
         setRoadmapVisible(true);
         setDashboardOpen(false);
     }
@@ -32,21 +34,21 @@ export default function Dashboard({featureArray = [], selectedCategory, setSelec
                                 <div className={styles.dashboard_roadmapList_item__planned}></div>
                                 <p className='_body2'>Planned</p>
                             </div>
-                            <p className={styles.dashboard_roadmapList_count}>2</p>
+                            <p className={styles.dashboard_roadmapList_count}>{data.filter(elem => elem.status === 'planned').length}</p>
                         </li>
                         <li className={styles.dashboard_roadmapList_item}>
                             <div className={styles.dashboard_roadmapList_grouping}>
                                 <div className={styles.dashboard_roadmapList_item__inprogress}></div>
                                 <p className='_body2'>In-Progress</p>
                             </div>
-                            <p className={styles.dashboard_roadmapList_count}>3</p>
+                            <p className={styles.dashboard_roadmapList_count}>{data.filter(elem => elem.status === 'in-progress').length}</p>
                         </li>
                         <li className={styles.dashboard_roadmapList_item}>
                             <div className={styles.dashboard_roadmapList_grouping}>
                                 <div className={styles.dashboard_roadmapList_item__live}></div>
                                 <p className='_body2'>Live</p>
                             </div>
-                            <p className={styles.dashboard_roadmapList_count}>1</p>
+                            <p className={styles.dashboard_roadmapList_count}>{data.filter(elem => elem.status === 'live').length}</p>
                         </li>
                     </ul>
 

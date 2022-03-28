@@ -11,7 +11,8 @@ export default function Main({data, dashboardOpen, setDashboardOpen, selectedCat
 
     return (
         <main className={styles.main}>
-            {dashboardOpen && <Dashboard 
+            {dashboardOpen && <Dashboard
+                data={data} 
                 featureArray={featureArray}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}

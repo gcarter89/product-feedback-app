@@ -12,7 +12,6 @@ function App() {
     const [dashboardOpen, setDashboardOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [roadmapVisible, setRoadmapVisible] = useState(false);
-    console.log(jsonData);
 
     useEffect(() => {
         if (selectedCategory === 'all') {

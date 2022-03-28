@@ -5,7 +5,6 @@ export default function CategoryTab({ category, selected = false, setSelectedCat
 
     function handleClick(event, cat) {
         event.preventDefault();
-        console.log(cat);
         setSelectedCategory(cat);
     }
 
