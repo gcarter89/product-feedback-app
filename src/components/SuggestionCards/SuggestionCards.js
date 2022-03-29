@@ -2,7 +2,7 @@ import styles from './suggestioncards.module.scss'
 import SuggestionCard from "../SuggestionCard/SuggestionCard.js";
 import EmptyCard from '../EmptyCard/EmptyCard.js';
 
-export default function SuggestionCards({ suggestionData, data, dashboardOpen }) {
+export default function SuggestionCards({ suggestionData, dashboardOpen }) {
     if (!suggestionData || suggestionData.length === 0) {
         return (
             <EmptyCard />

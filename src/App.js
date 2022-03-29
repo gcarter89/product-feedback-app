@@ -22,13 +22,18 @@ function App() {
 
 
     useEffect(() => {
+
+        const allSuggestionData = jsonData.productRequests.filter(elem => elem.status === 'suggestion');
+
+        
         if (selectedCategory === 'all') {
-            return setData(jsonData.productRequests);
+            return setSuggestionData(jsonData.productRequests.filter(elem => elem.status === 'suggestion'));
         }
 
-        const result = jsonData.productRequests.filter(elem => elem.category === selectedCategory);
+
+        const result = allSuggestionData.filter(elem => elem.category === selectedCategory);
         
-        setData(result);
+        setSuggestionData(result);
 
     }, [selectedCategory])
 

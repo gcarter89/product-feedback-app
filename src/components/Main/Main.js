@@ -20,7 +20,7 @@ export default function Main({data, dashboardOpen, setDashboardOpen, selectedCat
                 setRoadmapVisible={setRoadmapVisible}
                 setDashboardOpen={setDashboardOpen}
                  />}
-            {!roadmapVisible && <SuggestionCards suggestionData={suggestionData} data={data} dashboardOpen={dashboardOpen} />}
+            {!roadmapVisible && <SuggestionCards suggestionData={suggestionData} dashboardOpen={dashboardOpen} />}
             {roadmapVisible && <Roadmap selectedRoadmapStatus={selectedRoadmapStatus} data={data} />}
         </main>
     )
