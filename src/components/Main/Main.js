@@ -1,8 +1,9 @@
 import styles from './main.module.scss'
-import SuggestionCards from "../SuggestionCards/SuggestionCards";
-import Dashboard from '../Dashboard/Dashboard';
+import SuggestionCards from "../SuggestionCards/SuggestionCards.js";
+import Dashboard from '../Dashboard/Dashboard.js';
+import Roadmap from '../Roadmap/Roadmap.js';
 
-export default function Main({data, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, roadmapVisible, setRoadmapVisible}) {
+export default function Main({data, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus}) {
     let featureArray = ['all', 'UI', 'UX', 'enhancement', 'bug', 'feature'];
     featureArray.push(...data.map(elem => { return elem.category }));
     featureArray = [...new Set(featureArray)];
@@ -20,7 +21,7 @@ export default function Main({data, dashboardOpen, setDashboardOpen, selectedCat
                 setDashboardOpen={setDashboardOpen}
                  />}
             {!roadmapVisible && <SuggestionCards data={data} dashboardOpen={dashboardOpen} />}
-            {roadmapVisible && <h1>this worked</h1>}
+            {roadmapVisible && <Roadmap selectedRoadmapStatus={selectedRoadmapStatus} data={data} />}
         </main>
     )
 }

@@ -12,6 +12,12 @@ function App() {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [roadmapVisible, setRoadmapVisible] = useState(false);
 
+    const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState('in-progress');
+
+    console.log(jsonData)
+
+
+
     useEffect(() => {
         if (selectedCategory === 'all') {
             return setData(jsonData.productRequests)
@@ -56,6 +62,8 @@ function App() {
                 setSelectedIndex={setSelectedIndex}
                 roadmapVisible={roadmapVisible}
                 setRoadmapVisible={setRoadmapVisible}
+                selectedRoadmapStatus={selectedRoadmapStatus}
+                setSelectedRoadmapStatus={setSelectedRoadmapStatus}
 
             />
             <Main
@@ -66,6 +74,7 @@ function App() {
                 setSelectedCategory={setSelectedCategory}
                 roadmapVisible={roadmapVisible}
                 setRoadmapVisible={setRoadmapVisible} 
+                selectedRoadmapStatus={selectedRoadmapStatus}
             />
         </div>
     );
