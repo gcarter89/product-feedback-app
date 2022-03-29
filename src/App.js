@@ -8,7 +8,6 @@ import Main from './components/Main/Main';
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     
-    //use this suggestion data for the suggestion cards.
     const [data, setData] = useState(jsonData.productRequests);
     const [suggestionData, setSuggestionData] = useState(jsonData.productRequests.filter(elem => elem.status === 'suggestion'))
 
@@ -41,19 +40,19 @@ function App() {
     useEffect(() => {
         switch (selectedIndex) {
             case 0:
-                setData(prevState => ([...prevState].sort(upvoteCompare)))
+                setSuggestionData(prevState => ([...prevState].sort(upvoteCompare)))
                 break;
                 
             case 1:
-                setData(prevState => ([...prevState].sort(upvoteCompareReverse)));
+                setSuggestionData(prevState => ([...prevState].sort(upvoteCompareReverse)));
                 break;
 
             case 2:
-                setData(prevState => ([...prevState].sort(commentsCompare)));
+                setSuggestionData(prevState => ([...prevState].sort(commentsCompare)));
                 break;
 
             case 3:
-                setData(prevState => ([...prevState].sort(commentsCompareReverse)))
+                setSuggestionData(prevState => ([...prevState].sort(commentsCompareReverse)))
             break;
 
             default:
