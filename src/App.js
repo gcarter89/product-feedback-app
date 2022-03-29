@@ -7,20 +7,23 @@ import Main from './components/Main/Main';
 
 function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
+    
+    //use this suggestion data for the suggestion cards.
     const [data, setData] = useState(jsonData.productRequests);
+    const [suggestionData, setSuggestionData] = useState(jsonData.productRequests.filter(elem => elem.status === 'suggestion'))
+
+
     const [dashboardOpen, setDashboardOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [roadmapVisible, setRoadmapVisible] = useState(false);
 
     const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState('in-progress');
 
-    console.log(jsonData)
-
 
 
     useEffect(() => {
         if (selectedCategory === 'all') {
-            return setData(jsonData.productRequests)
+            return setData(jsonData.productRequests);
         }
 
         const result = jsonData.productRequests.filter(elem => elem.category === selectedCategory);
@@ -68,6 +71,7 @@ function App() {
             />
             <Main
                 data={data}
+                suggestionData={suggestionData}
                 dashboardOpen={dashboardOpen}
                 setDashboardOpen={setDashboardOpen}
                 selectedCategory={selectedCategory}

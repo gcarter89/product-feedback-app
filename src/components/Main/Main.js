@@ -3,7 +3,7 @@ import SuggestionCards from "../SuggestionCards/SuggestionCards.js";
 import Dashboard from '../Dashboard/Dashboard.js';
 import Roadmap from '../Roadmap/Roadmap.js';
 
-export default function Main({data, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus}) {
+export default function Main({data, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus, suggestionData}) {
     let featureArray = ['all', 'UI', 'UX', 'enhancement', 'bug', 'feature'];
     featureArray.push(...data.map(elem => { return elem.category }));
     featureArray = [...new Set(featureArray)];
@@ -20,7 +20,7 @@ export default function Main({data, dashboardOpen, setDashboardOpen, selectedCat
                 setRoadmapVisible={setRoadmapVisible}
                 setDashboardOpen={setDashboardOpen}
                  />}
-            {!roadmapVisible && <SuggestionCards data={data} dashboardOpen={dashboardOpen} />}
+            {!roadmapVisible && <SuggestionCards suggestionData={suggestionData} data={data} dashboardOpen={dashboardOpen} />}
             {roadmapVisible && <Roadmap selectedRoadmapStatus={selectedRoadmapStatus} data={data} />}
         </main>
     )
