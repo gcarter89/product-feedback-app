@@ -1,14 +1,8 @@
-import styles from './header.module.scss';
-import Hamburger from './_subcomponents/Hamburger';
+import DropdownHeader from './_subcomponents/DropdownHeader.js';
+import RoadmapHeader from './_subcomponents/RoadmapHeader.js';
 
-export default function Header({dashboardOpen, setDashboardOpen}) {
+export default function Header({dashboardOpen, setDashboardOpen, selectedIndex, setSelectedIndex, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {
     return (
-        <header className={styles.header}>
-            <div>
-                <h4>Frontend Mentor</h4>
-                <p className='_body3'>Feedback Board</p>
-            </div>
-            <Hamburger dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
-        </header>
+        roadmapVisible ? <RoadmapHeader setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} statusArray={statusArray} />  : <DropdownHeader selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
     )
 }
