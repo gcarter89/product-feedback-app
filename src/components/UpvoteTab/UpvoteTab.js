@@ -1,5 +1,5 @@
 import styles from './upvotetab.module.scss';
-import {ReactComponent as UpvoteIcon} from '../../../assets/shared/icon-arrow-up.svg';
+import {ReactComponent as UpvoteIcon} from '../../assets/shared/icon-arrow-up.svg';
 
 
 export default function UpvoteTab({count}) {

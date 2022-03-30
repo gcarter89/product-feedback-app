@@ -1,7 +1,7 @@
-import styles from './suggestioncard.module.scss'
-import CategoryTab from '../CategoryTab/CategoryTab.js'
-import CommentsTab from './_subcomponents/CommentsTab.js'
-import UpvoteTab from './_subcomponents/UpvoteTab.js'
+import styles from './suggestioncard.module.scss';
+import CategoryTab from '../CategoryTab/CategoryTab.js';
+import CommentsTab from '../CommentsTab/CommentsTab.js';
+import UpvoteTab from '../UpvoteTab/UpvoteTab.js'
 export default function SuggestionCard({ data }) {
 
     return (

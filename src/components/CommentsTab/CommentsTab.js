@@ -1,5 +1,5 @@
 import styles from './commentstab.module.scss';
-import {ReactComponent as CommentIcon} from '../../../assets/shared/icon-comments.svg';
+import {ReactComponent as CommentIcon} from '../../assets/shared/icon-comments.svg';
 
 export default function CommentsTab({count}) {
     return (

@@ -3,7 +3,7 @@ import SuggestionCards from "../SuggestionCards/SuggestionCards.js";
 import Dashboard from '../Dashboard/Dashboard.js';
 import Roadmap from '../Roadmap/Roadmap.js';
 
-export default function Main({data, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus, suggestionData, statusArray}) {
+export default function Main({data, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus, roadmapData, suggestionData, statusArray}) {
     let featureArray = ['all', 'UI', 'UX', 'enhancement', 'bug', 'feature'];
     featureArray.push(...data.map(elem => { return elem.category }));
     featureArray = [...new Set(featureArray)];
@@ -13,7 +13,6 @@ export default function Main({data, dashboardOpen, setDashboardOpen, selectedCat
     return (
         <main className={styles.main}>
             {dashboardOpen && <Dashboard
-                data={data} 
                 featureArray={featureArray}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
@@ -22,7 +21,7 @@ export default function Main({data, dashboardOpen, setDashboardOpen, selectedCat
                 statusArray={statusArray}
                  />}
             {!roadmapVisible && <SuggestionCards suggestionData={suggestionData} dashboardOpen={dashboardOpen} />}
-            {roadmapVisible && <Roadmap selectedRoadmapStatus={selectedRoadmapStatus} data={data} />}
+            {roadmapVisible && <Roadmap selectedRoadmapStatus={selectedRoadmapStatus} roadmapData={roadmapData} />}
         </main>
     )
 }

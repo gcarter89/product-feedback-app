@@ -61,7 +61,7 @@ function App() {
     }, [selectedIndex, selectedCategory]);
 
     useEffect(() => {
-        setRoadmapData(jsonData.productRequests.filter(elem => elem.status === selectedRoadmapStatus));
+        setRoadmapData(jsonData.productRequests.filter(elem => elem.status === selectedRoadmapStatus[0].toLowerCase()));
     }, [selectedRoadmapStatus])
 
     return (
@@ -89,6 +89,7 @@ function App() {
                 setRoadmapVisible={setRoadmapVisible} 
                 selectedRoadmapStatus={selectedRoadmapStatus}
                 statusArray={statusArray}
+                roadmapData={roadmapData}
             />
         </div>
     );

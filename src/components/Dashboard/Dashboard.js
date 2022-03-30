@@ -1,7 +1,7 @@
 import styles from './dashboard.module.scss';
 import CategoryButton from '../CategoryButton/CategoryButton.js'
 
-export default function Dashboard({data, featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen, statusArray}) {
+export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen, statusArray = []}) {
     
 
     function handleClick(event) {
@@ -10,7 +10,33 @@ export default function Dashboard({data, featureArray = [], selectedCategory, se
         setDashboardOpen(false);
     }
 
-    //to-do: statusArray will update data for roadmap submenu
+    const children = statusArray.map((elem, index) => {
+        let dotStyle;
+
+        if (elem[0].toLowerCase() === 'planned') {
+            dotStyle = styles.dashboard_roadmapList_item__planned;
+        }
+
+        if (elem[0].toLowerCase() === 'in-progress') {
+            dotStyle = styles.dashboard_roadmapList_item__inprogress;
+        }
+
+        if (elem[0].toLowerCase() === 'live') {
+            dotStyle = styles.dashboard_roadmapList_item__live;
+        }
+
+
+        return (
+            <li key={index} className={styles.dashboard_roadmapList_item}>
+                <div className={styles.dashboard_roadmapList_grouping}>
+                    <div className={dotStyle}></div>
+                    <p className='_body2'>{elem[0]}</p>
+                </div>
+                <p className={styles.dashboard_roadmapList_count}>{elem[1]}</p>
+            </li>
+        )
+    })
+
 
     return (
         <div className={styles.overlay}>
@@ -29,29 +55,8 @@ export default function Dashboard({data, featureArray = [], selectedCategory, se
                     </div>
 
                     <ul className={styles.dashboard_roadmapList}>
-                        <li className={styles.dashboard_roadmapList_item}>
-                            <div className={styles.dashboard_roadmapList_grouping}>
-                                <div className={styles.dashboard_roadmapList_item__planned}></div>
-                                <p className='_body2'>Planned</p>
-                            </div>
-                            <p className={styles.dashboard_roadmapList_count}>{data.filter(elem => elem.status === 'planned').length}</p>
-                        </li>
-                        <li className={styles.dashboard_roadmapList_item}>
-                            <div className={styles.dashboard_roadmapList_grouping}>
-                                <div className={styles.dashboard_roadmapList_item__inprogress}></div>
-                                <p className='_body2'>In-Progress</p>
-                            </div>
-                            <p className={styles.dashboard_roadmapList_count}>{data.filter(elem => elem.status === 'in-progress').length}</p>
-                        </li>
-                        <li className={styles.dashboard_roadmapList_item}>
-                            <div className={styles.dashboard_roadmapList_grouping}>
-                                <div className={styles.dashboard_roadmapList_item__live}></div>
-                                <p className='_body2'>Live</p>
-                            </div>
-                            <p className={styles.dashboard_roadmapList_count}>{data.filter(elem => elem.status === 'live').length}</p>
-                        </li>
+                        {children}
                     </ul>
-
                 </div>
             </div>
         </div>
