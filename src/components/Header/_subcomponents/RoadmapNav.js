@@ -1,13 +1,16 @@
 import styles from './roadmapnav.module.scss';
 
-export default function RoadmapNav({selectedRoadmapStatus, setSelectedRoadmapStatus}) {
+export default function RoadmapNav({selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {
 
-    const statusArray =[['Planned', 2], ['In-Progress', 3], ['Live', 1]];
-
-    function handleStatusClick(event, status) {
+    function handleStatusClick(event, statusName) {
         event.preventDefault();
-        setSelectedRoadmapStatus(status);
-        console.log(status);
+        statusArray.forEach(elem => {
+            if (statusName === elem[0]) {
+                setSelectedRoadmapStatus(elem);
+
+            }
+        })
+
     }
 
     return (
@@ -15,7 +18,7 @@ export default function RoadmapNav({selectedRoadmapStatus, setSelectedRoadmapSta
             <ul className={styles.nav_list}>
                 {statusArray.map((elem, index) => {
                     return (
-                        elem[0] === selectedRoadmapStatus ? <li key={index} className={styles.nav_item__selected}><h4 className={styles.nav_heading__selected}>{elem[0]} ({elem[1]})</h4></li> : <li onClick={(e) => handleStatusClick(e, elem[0])} key={index} className={styles.nav_item}><h4 className={styles.nav_heading}>{elem[0]} ({elem[1]})</h4></li>
+                        elem[0] === selectedRoadmapStatus[0] ? <li key={index} className={styles.nav_item__selected}><h4 className={styles.nav_heading__selected}>{elem[0]} ({elem[1]})</h4></li> : <li onClick={(e) => handleStatusClick(e, elem[0])} key={index} className={styles.nav_item}><h4 className={styles.nav_heading}>{elem[0]} ({elem[1]})</h4></li>
                     )
                 })}
 

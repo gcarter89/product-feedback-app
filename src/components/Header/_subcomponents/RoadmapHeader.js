@@ -4,7 +4,7 @@ import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 import RoadmapNav from './RoadmapNav.js';
 
 
-export default function RoadmapHeader({setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus}) {
+export default function RoadmapHeader({setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {
 
     function handleBackClick(event) {
         event.preventDefault();
@@ -23,7 +23,7 @@ export default function RoadmapHeader({setRoadmapVisible, selectedRoadmapStatus,
                 </div>
                 <button className={styles.roadmapHeader_addButton}><h4><PlusIcon /> Add Feedback</h4></button>
             </header>
-            <RoadmapNav selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} />
+            <RoadmapNav selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} statusArray={statusArray} />
         </>
         
     )

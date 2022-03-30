@@ -1,16 +1,16 @@
 import styles from './dashboard.module.scss';
 import CategoryButton from '../CategoryButton/CategoryButton.js'
 
-export default function Dashboard({data, featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen}) {
+export default function Dashboard({data, featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen, statusArray}) {
     
-    //to-do generate counts for different productreview statuses
-    console.log(data.filter(elem => elem.status === 'planned').length)
 
     function handleClick(event) {
         event.preventDefault();
         setRoadmapVisible(true);
         setDashboardOpen(false);
     }
+
+    //to-do: statusArray will update data for roadmap submenu
 
     return (
         <div className={styles.overlay}>
