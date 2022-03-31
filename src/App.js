@@ -6,21 +6,25 @@ import { useEffect, useState } from 'react';
 import Main from './components/Main/Main';
 
 function App() {
-    const [selectedIndex, setSelectedIndex] = useState(0);
-    
-    const [data, setData] = useState(jsonData.productRequests);
-
+    //data state variables
     const [suggestionData, setSuggestionData] = useState(jsonData.productRequests.filter(elem => elem.status === 'suggestion'));
+    const [roadmapData, setRoadmapData] = useState(jsonData.productRequests.filter(elem => elem.status === 'in-progress'));
+
+    //miscellaneous array props
+    const statusArray = [['Planned', jsonData.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', jsonData.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', jsonData.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
+    let featureArray = ['all', 'UI', 'UX', 'enhancement', 'bug', 'feature'];
+    featureArray.push(...jsonData.productRequests.map(elem => { return elem.category }));
+    featureArray = [...new Set(featureArray)];
+
+
+    //visibility state variables
     const [dashboardOpen, setDashboardOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState('all');
     const [roadmapVisible, setRoadmapVisible] = useState(false);
 
-    const statusArray = [['Planned', jsonData.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', jsonData.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', jsonData.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
-
-
+    //selection state variables
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState(statusArray[1]);
-    const [roadmapData, setRoadmapData] = useState(jsonData.productRequests.filter(elem => elem.status === 'in-progress'))
-
 
 
     useEffect(() => {
@@ -76,10 +80,9 @@ function App() {
                 selectedRoadmapStatus={selectedRoadmapStatus}
                 setSelectedRoadmapStatus={setSelectedRoadmapStatus}
                 statusArray={statusArray}
-
             />
             <Main
-                data={data}
+                featureArray={featureArray}
                 suggestionData={suggestionData}
                 dashboardOpen={dashboardOpen}
                 setDashboardOpen={setDashboardOpen}
