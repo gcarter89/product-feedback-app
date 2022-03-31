@@ -14,8 +14,16 @@
         margin-bottom: 8px;
     }
 
-    &_header {
+    &_title {
         margin-bottom: 8px;
+    }
+
+    &__clickable {
+        cursor: pointer;
+    }
+
+    &__clickable:hover {
+        text-decoration: underline;
     }
 
     &_commentsUpvotes {

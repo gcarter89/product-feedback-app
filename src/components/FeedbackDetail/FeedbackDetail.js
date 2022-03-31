@@ -1,5 +1,11 @@
-export default function FeedbackDetail({selectedFeedback}) {
+import CommentsCard from "../CommentsCard/CommentsCard.js"
+import SuggestionCard from "../SuggestionCard/SuggestionCard.js"
+
+export default function FeedbackDetail({selectedFeedbackDetail}) {
     return (
-        <h1>Feedback here!</h1>
+        <>
+        <SuggestionCard data={selectedFeedbackDetail} />
+        {selectedFeedbackDetail.comments ? <CommentsCard data={selectedFeedbackDetail.comments} /> : null}
+        </>
     )
 }

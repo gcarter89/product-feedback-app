@@ -4,11 +4,12 @@ import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 import RoadmapNav from './RoadmapNav.js';
 
 
-export default function RoadmapHeader({setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {
+export default function RoadmapHeader({setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus, setCardsVisible, statusArray}) {
 
     function handleBackClick(event) {
         event.preventDefault();
         setRoadmapVisible(false);
+        setCardsVisible(true)
     }
 
     return (
