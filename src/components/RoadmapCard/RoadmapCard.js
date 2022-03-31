@@ -38,8 +38,8 @@ export default function RoadmapCard({cardData})  {
                     <CategoryTab category={cardData.category} />
                 </div>
                 <div className={styles.roadmapCard_commentsUpvote}>
-                    <CommentsTab count={!cardData.comments ? 0 : cardData.comments.length} />
                     <UpvoteTab count={!cardData.upvotes ? 0 : cardData.upvotes} />
+                    <CommentsTab count={!cardData.comments ? 0 : cardData.comments.length} />
                 </div>
             </div>
         )
