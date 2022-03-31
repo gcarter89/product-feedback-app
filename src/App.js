@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Main from './components/Main/Main';
 
 function App() {
+
     //data state variables
     const [suggestionData, setSuggestionData] = useState(jsonData.productRequests.filter(elem => elem.status === 'suggestion'));
     const [roadmapData, setRoadmapData] = useState(jsonData.productRequests.filter(elem => elem.status === 'in-progress'));
@@ -19,12 +20,15 @@ function App() {
 
     //visibility state variables
     const [dashboardOpen, setDashboardOpen] = useState(false);
+    const [cardsVisible, setCardsVisible] = useState(true);
     const [roadmapVisible, setRoadmapVisible] = useState(false);
+    const [feedbackDetailVisible, setFeedbackDetailVisible] = useState(false);
 
     //selection state variables
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState(statusArray[1]);
+    const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState({});
 
 
     useEffect(() => {
@@ -77,6 +81,7 @@ function App() {
                 setSelectedIndex={setSelectedIndex}
                 roadmapVisible={roadmapVisible}
                 setRoadmapVisible={setRoadmapVisible}
+                setCardsVisible={setCardsVisible}
                 selectedRoadmapStatus={selectedRoadmapStatus}
                 setSelectedRoadmapStatus={setSelectedRoadmapStatus}
                 statusArray={statusArray}
@@ -89,8 +94,14 @@ function App() {
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
                 roadmapVisible={roadmapVisible}
-                setRoadmapVisible={setRoadmapVisible} 
+                setRoadmapVisible={setRoadmapVisible}
+                cardsVisible={cardsVisible}
+                setCardsVisible={setCardsVisible}
                 selectedRoadmapStatus={selectedRoadmapStatus}
+                feedbackDetailVisible={feedbackDetailVisible}
+                setFeedbackDetailVisible={setFeedbackDetailVisible}
+                selectedFeedbackDetail={selectedFeedbackDetail}
+                setSelectedFeedbackDetail={setSelectedFeedbackDetail}
                 statusArray={statusArray}
                 roadmapData={roadmapData}
             />

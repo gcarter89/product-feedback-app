@@ -1,0 +1,52 @@
+.comment {
+    padding-bottom: 24px;
+
+    &_commentContainer {
+        //changed
+        // padding-bottom: 24px;
+        padding-top: 24px;
+    }
+
+    &__border {
+        border-bottom: 1px solid rgba(140, 146, 179, 0.25);
+    }
+
+    &_avatarHandleReply {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 16px;
+    }
+    &_avatarHandle {
+        color: #3A4374;
+        display: flex;
+        align-items: center;
+        img {
+            height: 40px;
+            border-radius: 50%;
+        }
+    }
+    &_handle {
+        padding-left: 16px;
+        h4 {
+        color: #3A4374;
+        }
+        p{
+            color: #647196;
+        }
+    }
+
+    &_replyButton {
+        cursor: pointer;
+        color: #4661E6;
+    }
+
+    &_commentBody {
+        padding-bottom: 24px;
+        color: #647196;
+    }
+
+    &_repliesContainer {
+        border-left: 1px solid rgba(100, 113, 150, 0.1);
+    }
+}

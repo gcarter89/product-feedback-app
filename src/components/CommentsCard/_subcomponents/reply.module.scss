@@ -1,0 +1,47 @@
+.reply{
+    padding-left: 24px;
+
+    &_replyContainer {
+        margin-bottom: 24px;
+    }
+
+    &_avatarHandleReply {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 16px;
+    }
+    &_avatarHandle {
+        color: #3A4374;
+        display: flex;
+        align-items: center;
+        img {
+            height: 40px;
+            border-radius: 50%;
+        }
+    }
+    &_handle {
+        padding-left: 16px;
+        h4 {
+        color: #3A4374;
+        }
+        p{
+            color: #647196;
+        }
+        
+    }
+
+    &_replyButton {
+        cursor: pointer;
+        color: #4661E6;
+    }
+
+    &_replyBody {
+        color: #647196;
+    }
+
+    &_replyingTo {
+        color: #AD1FEA;
+        font-weight: 700;
+    }
+}

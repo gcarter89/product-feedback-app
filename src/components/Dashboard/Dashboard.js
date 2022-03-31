@@ -1,13 +1,14 @@
 import styles from './dashboard.module.scss';
 import CategoryButton from '../CategoryButton/CategoryButton.js'
 
-export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setDashboardOpen, statusArray = []}) {
+export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setCardsVisible, setDashboardOpen, statusArray = []}) {
     
 
     function handleClick(event) {
         event.preventDefault();
         setRoadmapVisible(true);
         setDashboardOpen(false);
+        setCardsVisible(false)
     }
 
     const children = statusArray.map((elem, index) => {

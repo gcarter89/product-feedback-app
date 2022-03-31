@@ -1,0 +1,46 @@
+.replyForm {
+    width: 100%;
+    padding-bottom: 24px;
+    &_input {
+        height: 80px;
+        width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 5px;
+        background-color: #F7F8FD;
+        color: #8C92B3;
+        resize: none;
+        outline: none;
+
+        font-family: Jost;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 19px;
+    }
+
+    &_charactersButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 16px;
+    }
+
+    &_characters {
+        color: #647196;
+    }
+
+    &_button {
+        cursor: pointer;
+        height: 40px;
+        width: 119px;
+        background-color: #AD1FEA;
+        border-radius: 10px;
+        text-align: center;
+        h4 {
+            font-size: 13px;
+            color: #F2F4FE;
+        }
+    }
+}
