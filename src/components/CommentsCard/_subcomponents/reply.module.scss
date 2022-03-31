@@ -1,14 +1,8 @@
-.comment {
-    padding-bottom: 24px;
+.reply{
+    padding-left: 24px;
 
-    &_commentContainer {
-        //changed
-        // padding-bottom: 24px;
-        padding-top: 24px;
-    }
-
-    &__border {
-        border-bottom: 1px solid rgba(140, 146, 179, 0.25);
+    &_replyContainer {
+        margin-bottom: 24px;
     }
 
     &_avatarHandleReply {
@@ -34,6 +28,7 @@
         p{
             color: #647196;
         }
+        
     }
 
     &_replyButton {
@@ -41,12 +36,12 @@
         color: #4661E6;
     }
 
-    &_commentBody {
-        padding-bottom: 24px;
+    &_replyBody {
         color: #647196;
     }
 
-    &_repliesContainer {
-        border-left: 1px solid rgba(100, 113, 150, 0.1);
+    &_replyingTo {
+        color: #AD1FEA;
+        font-weight: 700;
     }
 }
