@@ -9,42 +9,7 @@
     border-radius: 10px;
     padding: 24px;
 
-    &_commentContainer {
-        border-bottom: 1px solid rgba(140, 146, 179, 0.25);
-        padding-bottom: 24px;
-    }
-
     &_commentCount {
         color: #3A4374;
-        padding-bottom: 24px;
-    }
-
-    &_avatarHandleReply {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 16px;
-    }
-    &_avatarHandle {
-        color: #3A4374;
-        display: flex;
-        align-items: center;
-        img {
-            height: 40px;
-            border-radius: 50%;
-        }
-    }
-    &_handle {
-        color: #647196;
-        padding-left: 16px;
-    }
-
-    &_reply {
-        cursor: pointer;
-        color: #4661E6;
-    }
-
-    &_commentBody {
-        color: #647196;
     }
 }
