@@ -18,7 +18,7 @@ export default function ReplyForm() {
 
     return (
         <div className={styles.replyForm}>
-            <textarea onChange={(e) => handleChange(e)} className={styles.replyForm_input} />
+            <textarea onChange={(e) => handleChange(e)} className={styles.replyForm_input} placeholder="Type your reply here" />
             <div className={styles.replyForm_charactersButton}>
                 <p className={`_body3 ${styles.replyForm_characters}`}>{characterCount} Characters left</p>
                 <button className={styles.replyForm_button}><h4>Post Reply</h4></button>

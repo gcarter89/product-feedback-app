@@ -1,0 +1,56 @@
+.commentForm {
+    height: fit-content;
+    max-width: 327px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    padding: 24px;
+
+    &_title {
+        color: #3A4374;
+        margin-bottom: 24px;
+    }
+
+    &_bodyButton {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &_button {
+        cursor: pointer;
+        height: 40px;
+        width: 119px;
+        background-color: #AD1FEA;
+        border-radius: 10px;
+        text-align: center;
+        h4 {
+            font-size: 13px;
+            color: #F2F4FE;
+        }
+    }
+    &_body {
+        color: #647196;
+    }
+
+    &_input {
+        height: 80px;
+        width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+        border: none;
+        border-radius: 5px;
+        background-color: #F7F8FD;
+        color: #8C92B3;
+        resize: none;
+        outline: none;
+        font-family: Jost;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 19px;
+        margin-bottom: 16px;
+    }
+}

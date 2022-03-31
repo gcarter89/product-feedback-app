@@ -1,3 +1,4 @@
+import CommentForm from "../CommentForm/CommentForm.js"
 import CommentsCard from "../CommentsCard/CommentsCard.js"
 import SuggestionCard from "../SuggestionCard/SuggestionCard.js"
 
@@ -6,6 +7,7 @@ export default function FeedbackDetail({selectedFeedbackDetail}) {
         <>
         <SuggestionCard data={selectedFeedbackDetail} />
         {selectedFeedbackDetail.comments ? <CommentsCard data={selectedFeedbackDetail.comments} /> : null}
+        <CommentForm />
         </>
     )
 }
