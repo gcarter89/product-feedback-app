@@ -38,7 +38,7 @@ export default function NewFeedbackCard() {
 
             <div className={styles.newFeedbackCard_grouping}>
                 <div className={styles.newFeedbackCard_headerBody}>
-                    <h3>Category</h3>
+                    <h4>Category</h4>
                     <p className='_body3'>Choose a category for your feedback</p>
                 </div>
                 <div onClick={(e) => handleDropdownClick(e)} className={styles.newFeedbackCard_dropdown}>
@@ -61,7 +61,7 @@ export default function NewFeedbackCard() {
 
             <div className={styles.newFeedbackCard_grouping}>
                 <div className={styles.newFeedbackCard_headerBody}>
-                    <h3>Feedback Detail</h3>
+                    <h4>Feedback Detail</h4>
                     <p className='_body3'>Include any specific comments on what should be improved, added, etc.</p>
                 </div>
                 <textarea className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__detail}`} />

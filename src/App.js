@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Main from './components/Main/Main';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
+import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
 
 function App() {
 
@@ -107,7 +108,8 @@ function App() {
                 statusArray={statusArray}
                 roadmapData={roadmapData}
             /> */}
-            <NewFeedback />
+            {/* <NewFeedback /> */}
+            <EditFeedback />
         </div>
     );
 }
