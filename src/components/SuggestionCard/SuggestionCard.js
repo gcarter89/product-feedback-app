@@ -15,8 +15,8 @@ export default function SuggestionCard({ data, clickable = false, setFeedbackDet
 
 
         <div className={styles.suggestionCard}>
-            <div>
-                {clickable ? <h4 onClick={(e) => handleCardClick(e)} className={`${styles.suggestionCard_title} ${styles.suggestionCard__clickable}`}>{data.title}</h4> : <h4 className={styles.suggestionCard_title}>{data.title}</h4>}
+            <div className={clickable ? styles.suggestionCard__clickable: null} onClick={clickable ? (e) => handleCardClick(e) : null}>
+                <h4 className={styles.suggestionCard_title}>{data.title}</h4>
                 <p className={`_body3 ${styles.suggestionCard_bodyText}`}>{data.description}</p>
                 <CategoryTab category={data.category} />
             </div>

@@ -23,7 +23,9 @@
     }
 
     &__clickable:hover {
-        text-decoration: underline;
+        h4 {
+            color: #4661E6;
+        }
     }
 
     &_commentsUpvotes {
