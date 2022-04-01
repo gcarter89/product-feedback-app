@@ -5,7 +5,7 @@ import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareRe
 import { useEffect, useState } from 'react';
 import Main from './components/Main/Main';
 
-import NewFeedback from './layouts/NewFeedback.js';
+import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 
 function App() {
 

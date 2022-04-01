@@ -1,5 +1,5 @@
 import styles from './newfeedbackheader.module.scss';
-import {ReactComponent as LeftArrow} from '../../assets/shared/icon-arrow-left.svg';
+import {ReactComponent as LeftArrow} from '../../../assets/shared/icon-arrow-left.svg';
 
 
 export default function NewFeedbackHeader({handle}) {

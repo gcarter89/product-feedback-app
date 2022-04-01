@@ -1,7 +1,7 @@
 import styles from './newfeedbackcard.module.scss';
-import {ReactComponent as NewFeedbackIcon} from '../../assets/shared/icon-new-feedback.svg';
-import {ReactComponent as DownIcon} from '../../assets/shared/icon-arrow-down.svg';
-import {ReactComponent as CheckIcon} from '../../assets/shared/icon-check.svg';
+import {ReactComponent as NewFeedbackIcon} from '../../../assets/shared/icon-new-feedback.svg';
+import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down.svg';
+import {ReactComponent as CheckIcon} from '../../../assets/shared/icon-check.svg';
 import { useState } from 'react';
 
 export default function NewFeedbackCard() {
