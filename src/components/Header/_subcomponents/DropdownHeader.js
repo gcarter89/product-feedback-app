@@ -1,6 +1,6 @@
 import styles from '../header.module.scss'
 import Hamburger from './Hamburger.js'
-import {ReactComponent as UpIcon} from '../../../assets/shared/icon-arrow-down.svg';
+import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down.svg';
 import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 import Dropdown from '../../Dropdown/Dropdown.js';
 import { useState } from 'react';
@@ -30,7 +30,7 @@ export default function DropdownHeader({selectedIndex, setSelectedIndex, dashboa
 
             <div className={styles.subheader}>
                 <div className={styles.subheader_selectedOption}>
-                    <p className='_body3'>Sort by : <strong className={styles.subheader_selector} onClick={() => setIsFilterOpen(!isFilterOpen)}>{dropdownList[selectedIndex]} <UpIcon /></strong></p>
+                    <p className='_body3'>Sort by : <strong className={styles.subheader_selector} onClick={() => setIsFilterOpen(!isFilterOpen)}>{dropdownList[selectedIndex]} <DownIcon /></strong></p>
                     {isFilterOpen &&
                         <Dropdown selectionArr={dropdownList} selectedIndex={selectedIndex} selectHandler={handleClick} />
                     }

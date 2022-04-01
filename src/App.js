@@ -5,6 +5,8 @@ import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareRe
 import { useEffect, useState } from 'react';
 import Main from './components/Main/Main';
 
+import NewFeedback from './layouts/NewFeedback.js';
+
 function App() {
 
     //data state variables
@@ -74,7 +76,7 @@ function App() {
 
     return (
         <div className="App">
-            <Header
+            {/* <Header
                 dashboardOpen={dashboardOpen}
                 setDashboardOpen={setDashboardOpen}
                 selectedIndex={selectedIndex}
@@ -104,7 +106,8 @@ function App() {
                 setSelectedFeedbackDetail={setSelectedFeedbackDetail}
                 statusArray={statusArray}
                 roadmapData={roadmapData}
-            />
+            /> */}
+            <NewFeedback />
         </div>
     );
 }
