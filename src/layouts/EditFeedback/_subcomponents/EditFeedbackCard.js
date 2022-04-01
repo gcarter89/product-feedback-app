@@ -27,7 +27,7 @@ export default function EditFeedbackCard() {
 
     return (
         <div className={styles.editFeedbackCard}>
-            <div className={styles.editFeedbackCard_EditFeedbackIcon}><EditFeedbackIcon /></div>
+            <div className={styles.editFeedbackCard_editFeedbackIcon}><EditFeedbackIcon /></div>
             <h3>Create New Feedback</h3>
 
             <div className={styles.editFeedbackCard_grouping}>
