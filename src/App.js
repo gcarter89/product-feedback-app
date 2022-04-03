@@ -108,8 +108,8 @@ function App() {
                 statusArray={statusArray}
                 roadmapData={roadmapData}
             /> */}
-            <NewFeedback />
-            {/* <EditFeedback /> */}
+            {/* <NewFeedback /> */}
+            <EditFeedback />
         </div>
     );
 }
