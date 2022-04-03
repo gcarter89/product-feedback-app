@@ -1,4 +1,4 @@
-import RoadmapCard from "../RoadmapCard/RoadmapCard.js";
+import RoadmapCard from "./RoadmapCard.js";
 
 export default function RoadmapCards({roadmapData}) {
 

@@ -1,9 +1,7 @@
 import './App.scss';
-// import Header from './components/Header/Header.js';
 import jsonData from './assets/data.json';
 import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareReverse  } from './helpers/sortFunctions';
 import { useEffect, useState } from 'react';
-// import Main from './components/Main/Main';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
@@ -80,42 +78,11 @@ function App() {
 
     return (
         <div className="App">
-            {/* <Header
-                dashboardOpen={dashboardOpen}
-                setDashboardOpen={setDashboardOpen}
-                selectedIndex={selectedIndex}
-                setSelectedIndex={setSelectedIndex}
-                roadmapVisible={roadmapVisible}
-                setRoadmapVisible={setRoadmapVisible}
-                setCardsVisible={setCardsVisible}
-                selectedRoadmapStatus={selectedRoadmapStatus}
-                setSelectedRoadmapStatus={setSelectedRoadmapStatus}
-                statusArray={statusArray}
-            />
-            <Main
-                featureArray={featureArray}
-                suggestionData={suggestionData}
-                dashboardOpen={dashboardOpen}
-                setDashboardOpen={setDashboardOpen}
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                roadmapVisible={roadmapVisible}
-                setRoadmapVisible={setRoadmapVisible}
-                cardsVisible={cardsVisible}
-                setCardsVisible={setCardsVisible}
-                selectedRoadmapStatus={selectedRoadmapStatus}
-                feedbackDetailVisible={feedbackDetailVisible}
-                setFeedbackDetailVisible={setFeedbackDetailVisible}
-                selectedFeedbackDetail={selectedFeedbackDetail}
-                setSelectedFeedbackDetail={setSelectedFeedbackDetail}
-                statusArray={statusArray}
-                roadmapData={roadmapData}
-            /> */}
             {/* <NewFeedback /> */}
             {/* <EditFeedback /> */}
             {/* <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} /> */}
             {/* <Suggestions setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} suggestionData={suggestionData} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} featureArray={featureArray} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} /> */}
-            <Roadmap setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} setCardsVisible={setCardsVisible} statusArray={statusArray} />
+            <Roadmap roadmapData={roadmapData} setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} setCardsVisible={setCardsVisible} statusArray={statusArray} />
         </div>
     );
 }
