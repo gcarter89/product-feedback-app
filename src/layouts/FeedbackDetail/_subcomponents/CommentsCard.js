@@ -1,5 +1,5 @@
 import styles from './commentscard.module.scss';
-import { Comment } from './_subcomponents/Comment.js';
+import { Comment } from './Comment.js';
 
 export default function CommentsCard({data}) {
 

@@ -7,6 +7,7 @@ import Main from './components/Main/Main';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
+import FeedbackDetail from './layouts/FeedbackDetail/FeedbackDetail';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState(statusArray[1]);
-    const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState({});
+    const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState(jsonData.productRequests[0]);
 
 
     useEffect(() => {
@@ -109,7 +110,8 @@ function App() {
                 roadmapData={roadmapData}
             /> */}
             {/* <NewFeedback /> */}
-            <EditFeedback />
+            {/* <EditFeedback /> */}
+            <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} />
         </div>
     );
 }
