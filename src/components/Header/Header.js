@@ -1,4 +1,4 @@
-import DropdownHeader from './_subcomponents/DropdownHeader.js';
+import DropdownHeader from '../../layouts/Suggestions/_subcomponents/DropdownHeader.js';
 import RoadmapHeader from './_subcomponents/RoadmapHeader.js';
 
 export default function Header({dashboardOpen, setDashboardOpen, selectedIndex, setSelectedIndex, setCardsVisible, roadmapVisible, setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {

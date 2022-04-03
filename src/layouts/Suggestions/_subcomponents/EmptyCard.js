@@ -1,6 +1,6 @@
 import styles from './emptycard.module.scss';
-import {ReactComponent as IllustrationEmpty} from '../../assets/suggestions/illustration-empty.svg';
-import {ReactComponent as PlusIcon} from '../../assets/shared/icon-plus.svg';
+import {ReactComponent as IllustrationEmpty} from '../../../assets/suggestions/illustration-empty.svg';
+import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 
 
 export default function EmptyCard() {

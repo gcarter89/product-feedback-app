@@ -1,6 +1,6 @@
 import styles from './suggestioncards.module.scss'
-import SuggestionCard from "../SuggestionCard/SuggestionCard.js";
-import EmptyCard from '../EmptyCard/EmptyCard.js';
+import SuggestionCard from "../../../components/SuggestionCard/SuggestionCard.js";
+import EmptyCard from './EmptyCard.js';
 
 export default function SuggestionCards({ suggestionData, dashboardOpen, setFeedbackDetailVisible, setCardsVisible, setSelectedFeedbackDetail }) {
     if (!suggestionData || suggestionData.length === 0) {
@@ -15,7 +15,7 @@ export default function SuggestionCards({ suggestionData, dashboardOpen, setFeed
     })
 
     return (
-        <div className={dashboardOpen ? styles.suggestionCards__dashboardOpen : undefined}>
+        <div className={dashboardOpen ? styles.suggestionCards__dashboardOpen: null}>
             {children}
         </div>
     )

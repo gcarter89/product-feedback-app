@@ -1,6 +1,6 @@
 import styles from './main.module.scss'
-import SuggestionCards from "../SuggestionCards/SuggestionCards.js";
-import Dashboard from '../Dashboard/Dashboard.js';
+import SuggestionCards from "../../layouts/Suggestions/_subcomponents/SuggestionCards.js";
+import Dashboard from '../../layouts/Suggestions/_subcomponents/Dashboard.js';
 import Roadmap from '../Roadmap/Roadmap.js';
 
 export default function Main({featureArray, dashboardOpen, setDashboardOpen, selectedCategory, setSelectedCategory, cardsVisible, setCardsVisible, roadmapVisible, setRoadmapVisible, feedbackDetailVisible, setFeedbackDetailVisible, selectedRoadmapStatus, selectedFeedbackDetail, setSelectedFeedbackDetail, roadmapData, suggestionData, statusArray}) {

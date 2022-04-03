@@ -1,5 +1,5 @@
 import styles from './dashboard.module.scss';
-import CategoryButton from '../CategoryButton/CategoryButton.js'
+import CategoryButton from '../../../components/CategoryButton/CategoryButton.js'
 
 export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setRoadmapVisible, setCardsVisible, setDashboardOpen, statusArray = []}) {
     
