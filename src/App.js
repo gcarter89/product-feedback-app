@@ -32,7 +32,7 @@ function App() {
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState(statusArray[1]);
-    const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState({});
+    const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState(jsonData.productRequests[0]);
 
 
     useEffect(() => {
@@ -111,7 +111,7 @@ function App() {
             /> */}
             {/* <NewFeedback /> */}
             {/* <EditFeedback /> */}
-            <FeedbackDetail />
+            <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} />
         </div>
     );
 }
