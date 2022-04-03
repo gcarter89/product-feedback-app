@@ -1,4 +1,4 @@
-import {ReactComponent as CheckIcon} from '../../assets/shared/icon-check.svg';
+import {ReactComponent as CheckIcon} from '../../../assets/shared/icon-check.svg';
 import styles from './dropdown.module.scss'
 
 

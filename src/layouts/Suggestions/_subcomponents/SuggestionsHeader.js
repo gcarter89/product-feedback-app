@@ -1,5 +1,5 @@
 import Hamburger from "./Hamburger";
-import Dropdown from "../../../components/Dropdown/Dropdown";
+import Dropdown from "./Dropdown";
 import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down.svg';
 import styles from './suggestionsheader.module.scss';

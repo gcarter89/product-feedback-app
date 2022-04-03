@@ -1,5 +1,5 @@
 import SuggestionCards from "./SuggestionCards";
-import Dashboard from "../../../components/Dashboard/Dashboard";
+import Dashboard from "./Dashboard.js";
 import styles from './suggestionsmain.module.scss';
 
 export default function SuggestionsMain({setSelectedFeedbackDetail, setFeedbackDetailVisible, suggestionData, statusArray, setCardsVisible, setRoadmapVisible, setSelectedCategory, featureArray, selectedCategory, dashboardOpen, setDashboardOpen}) {
