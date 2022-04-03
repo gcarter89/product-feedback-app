@@ -7,8 +7,9 @@ import { useEffect, useState } from 'react';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
-import FeedbackDetail from './layouts/FeedbackDetail/FeedbackDetail';
-import Suggestions from './layouts/Suggestions/Suggestions';
+import FeedbackDetail from './layouts/FeedbackDetail/FeedbackDetail.js';
+import Suggestions from './layouts/Suggestions/Suggestions.js';
+import Roadmap from './layouts/Roadmap/Roadmap.js'
 
 function App() {
 
@@ -113,7 +114,8 @@ function App() {
             {/* <NewFeedback /> */}
             {/* <EditFeedback /> */}
             {/* <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} /> */}
-            <Suggestions setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} suggestionData={suggestionData} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} featureArray={featureArray} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
+            {/* <Suggestions setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} suggestionData={suggestionData} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} featureArray={featureArray} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} /> */}
+            <Roadmap setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} setCardsVisible={setCardsVisible} statusArray={statusArray} />
         </div>
     );
 }
