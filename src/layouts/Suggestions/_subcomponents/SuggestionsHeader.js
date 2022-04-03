@@ -1,22 +1,23 @@
-import styles from '../header.module.scss'
-import Hamburger from './Hamburger.js'
-import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down.svg';
+import Hamburger from "./Hamburger";
+import Dropdown from "../../../components/Dropdown/Dropdown";
 import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
-import Dropdown from '../../Dropdown/Dropdown.js';
-import { useState } from 'react';
+import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down.svg';
+import styles from './suggestionsheader.module.scss';
+import { useState } from "react";
 
 
-export default function DropdownHeader({selectedIndex, setSelectedIndex, dashboardOpen, setDashboardOpen}) {
+
+export default function SuggestionsHeader({dashboardOpen, setDashboardOpen, selectedIndex, setSelectedIndex}) {
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const dropdownList = ['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'];
+
 
     function handleClick(event, index) {
         event.preventDefault();
         setSelectedIndex(index);
         setIsFilterOpen(false);
     }
-
 
     return (
         <>
