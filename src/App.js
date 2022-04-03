@@ -82,7 +82,7 @@ function App() {
             {/* <EditFeedback /> */}
             {/* <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} /> */}
             {/* <Suggestions setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} suggestionData={suggestionData} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} featureArray={featureArray} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} /> */}
-            <Roadmap roadmapData={roadmapData} setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} setCardsVisible={setCardsVisible} statusArray={statusArray} />
+            {/* <Roadmap roadmapData={roadmapData} setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} setCardsVisible={setCardsVisible} statusArray={statusArray} /> */}
         </div>
     );
 }
