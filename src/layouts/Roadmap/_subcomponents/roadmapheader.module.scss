@@ -1,0 +1,37 @@
+.roadmapHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: #373F68;
+    color: #FFFFFF;
+    padding: 24px 26px;
+    box-sizing: border-box;
+    &_backButton {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-bottom: 3px;
+    }
+
+    &_addButton {
+        cursor: pointer;
+        height: 40px;
+        width: 134px;
+        background-color: #AD1FEA;
+        border-radius: 10px;
+        text-align: center;
+        h4 {
+            color: #F2F4FE;
+            font-size: 13px;
+        }
+    }
+
+    &_icon {
+        padding-right: 16px;
+        path {
+            stroke:#CDD2EE;
+        }
+       
+    }
+}

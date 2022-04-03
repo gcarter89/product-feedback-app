@@ -1,7 +1,7 @@
 import styles from './roadmapcard.module.scss';
-import CategoryTab from '../CategoryTab/CategoryTab.js';
-import CommentsTab from '../CommentsTab/CommentsTab.js';
-import UpvoteTab from '../UpvoteTab/UpvoteTab.js';
+import CategoryTab from '../../../components/CategoryTab/CategoryTab.js';
+import CommentsTab from '../../../components/CommentsTab/CommentsTab.js';
+import UpvoteTab from '../../../components/UpvoteTab/UpvoteTab.js';
 
 export default function RoadmapCard({cardData})  {
 
