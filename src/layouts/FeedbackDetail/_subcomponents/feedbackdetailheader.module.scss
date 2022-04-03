@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    padding: 0 24px;
+    max-width: 327px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &_backButton {
+        height: fit-content;
+        color: #647196;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-bottom: 3px;
+        h4 {
+            font-size: 13px;
+        }
+    }
+
+    &_buttonIcon {
+        padding-right: 16px;
+        path {
+            stroke:#4661E6;
+        }
+    }
+    &_editFeedbackButton {
+        border-radius: 10px;
+        background-color: #4661E6;
+        color: #F2F4FE;
+        cursor: pointer;
+        height: 40px;
+        width: 119px;
+        text-align: center;
+        h4 {
+            font-size: 13px;
+            color: #F2F4FE;
+        }
+    }
+}

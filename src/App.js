@@ -7,6 +7,7 @@ import Main from './components/Main/Main';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
+import FeedbackDetail from './layouts/FeedbackDetail/FeedbackDetail';
 
 function App() {
 
@@ -109,7 +110,8 @@ function App() {
                 roadmapData={roadmapData}
             /> */}
             {/* <NewFeedback /> */}
-            <EditFeedback />
+            {/* <EditFeedback /> */}
+            <FeedbackDetail />
         </div>
     );
 }
