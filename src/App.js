@@ -1,6 +1,6 @@
 import './App.scss';
 import jsonData from './assets/data.json';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
@@ -14,8 +14,6 @@ function App() {
     //1. look at the state and refactor for each specific layout
     //2. preserve the global state but make sure the localised state is preserved in layout components.
 
-    //data state variables
-    const [roadmapData, setRoadmapData] = useState(jsonData.productRequests.filter(elem => elem.status === 'in-progress'));
 
     //miscellaneous array props
     const statusArray = [['Planned', jsonData.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', jsonData.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', jsonData.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
@@ -29,15 +27,12 @@ function App() {
 
     //selection state variables
 
-    const [selectedRoadmapStatus, setSelectedRoadmapStatus] = useState(statusArray[1]);
     const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState(jsonData.productRequests[0]);
 
 
 
 
-    useEffect(() => {
-        setRoadmapData(jsonData.productRequests.filter(elem => elem.status === selectedRoadmapStatus[0].toLowerCase()));
-    }, [selectedRoadmapStatus])
+
 
     return (
         <div className="App">
@@ -45,7 +40,7 @@ function App() {
             {/* <EditFeedback /> */}
             {/* <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} /> */}
             {/* <Suggestions data={jsonData} setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} /> */}
-            <Roadmap roadmapData={roadmapData} setRoadmapVisible={setRoadmapVisible} selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} setCardsVisible={setCardsVisible} statusArray={statusArray} />
+            <Roadmap data={jsonData} setRoadmapVisible={setRoadmapVisible} setCardsVisible={setCardsVisible} statusArray={statusArray} />
         </div>
     );
 }
