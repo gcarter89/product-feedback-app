@@ -1,6 +1,6 @@
 import './App.scss';
 import jsonData from './assets/data.json';
-import { useState } from 'react';
+import {BrowserRouter as Router, Route, Routes, useParams} from 'react-router-dom';
 
 import NewFeedback from './layouts/NewFeedback/NewFeedback.js';
 import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
@@ -12,23 +12,27 @@ function App() {
 
     const statusArray = [['Planned', jsonData.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', jsonData.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', jsonData.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
 
-
-
-    //visibility state variables
-    const [cardsVisible, setCardsVisible] = useState(true);
-    const [roadmapVisible, setRoadmapVisible] = useState(false);
-    const [feedbackDetailVisible, setFeedbackDetailVisible] = useState(false);
-
-    //selection state variables
-    const [selectedFeedbackDetail, setSelectedFeedbackDetail] = useState(jsonData.productRequests[0]);
+    const Element = () => {
+        const {testId} = useParams()
+        return (
+            <h1>{`${testId}`}</h1>
+        )
+    }
 
     return (
         <div className="App">
-            {/* <NewFeedback /> */}
-            {/* <EditFeedback /> */}
-            {/* <FeedbackDetail selectedFeedbackDetail={selectedFeedbackDetail} /> */}
-            <Suggestions data={jsonData} setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} />
-            {/* <Roadmap data={jsonData} setRoadmapVisible={setRoadmapVisible} setCardsVisible={setCardsVisible} statusArray={statusArray} /> */}
+                <Router>
+                <Routes>
+                    <Route index element={<Suggestions data={jsonData} statusArray={statusArray} />}/>
+                    <Route path="/:testId" element={<Element />}></Route>
+                    <Route path="/feedback">
+                        <Route path="/feedback/new" element={<NewFeedback />} />  
+                        <Route path=":id" element={<FeedbackDetail data={jsonData.productRequests} />} />
+                        <Route path=":id/edit" element={<EditFeedback data={jsonData.productRequests} />} />
+                    </Route>
+                    <Route path="/roadmap" element={<Roadmap data={jsonData} statusArray={statusArray} />}/>
+                </Routes>
+                </Router>
         </div>
     );
 }

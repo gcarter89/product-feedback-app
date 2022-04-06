@@ -4,7 +4,7 @@ import { commentsCompare, commentsCompareReverse, upvoteCompare, upvoteCompareRe
 import { useState, useEffect } from 'react';
 
 
-export default function Suggestions({data, setSelectedFeedbackDetail, setFeedbackDetailVisible, statusArray, setCardsVisible, setRoadmapVisible }) {
+export default function Suggestions({data, statusArray }) {
 
     const [dashboardOpen, setDashboardOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -57,7 +57,7 @@ export default function Suggestions({data, setSelectedFeedbackDetail, setFeedbac
     return (
         <>
             <SuggestionsHeader dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
-            <SuggestionsMain setSelectedFeedbackDetail={setSelectedFeedbackDetail} setFeedbackDetailVisible={setFeedbackDetailVisible} suggestionData={suggestionData} statusArray={statusArray} setCardsVisible={setCardsVisible} setRoadmapVisible={setRoadmapVisible} setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} featureArray={featureArray} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
+            <SuggestionsMain suggestionData={suggestionData} statusArray={statusArray} setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} featureArray={featureArray} dashboardOpen={dashboardOpen} setDashboardOpen={setDashboardOpen} />
         </>
     )
 }

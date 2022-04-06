@@ -3,12 +3,11 @@ import {ReactComponent as LeftArrow} from '../../../assets/shared/icon-arrow-lef
 import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 import RoadmapNav from './RoadmapNav.js';
 
-export default function RoadmapHeader({setRoadmapVisible, selectedRoadmapStatus, setSelectedRoadmapStatus, setCardsVisible, statusArray}) {
+export default function RoadmapHeader({selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {
 
     function handleBackClick(event) {
         event.preventDefault();
-        setRoadmapVisible(false);
-        setCardsVisible(true)
+        console.log('clicked!')
     }
 
 

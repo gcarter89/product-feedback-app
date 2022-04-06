@@ -2,14 +2,17 @@ import styles from './suggestioncard.module.scss';
 import CategoryTab from '../CategoryTab/CategoryTab.js';
 import CommentsTab from '../CommentsTab/CommentsTab.js';
 import UpvoteTab from '../UpvoteTab/UpvoteTab.js'
-export default function SuggestionCard({ data, clickable = false, setFeedbackDetailVisible, setCardsVisible, setSelectedFeedbackDetail }) {
+import {useNavigate} from 'react-router-dom';
+export default function SuggestionCard({ data, id, clickable = false }) {
+
+    const navigate = useNavigate();
 
     function handleCardClick(event) {
         event.preventDefault();
-        setFeedbackDetailVisible(true);
-        setSelectedFeedbackDetail(data);
-        setCardsVisible(false);
+        console.log(id)
+        navigate(`/feedback/${id}`);
     }
+
 
     return (
 

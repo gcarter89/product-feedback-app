@@ -5,7 +5,6 @@ import styles from './feedbackdetailmain.module.scss';
 
 
 export default function FeedbackDetailMain({selectedFeedbackDetail}) {
-    console.log()
     return (
         <main className={styles.feedbackDetailMain}>
             <SuggestionCard data={selectedFeedbackDetail} />
