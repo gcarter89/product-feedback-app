@@ -2,12 +2,15 @@ import styles from './roadmapheader.module.scss';
 import {ReactComponent as LeftArrow} from '../../../assets/shared/icon-arrow-left.svg';
 import {ReactComponent as PlusIcon} from '../../../assets/shared/icon-plus.svg';
 import RoadmapNav from './RoadmapNav.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function RoadmapHeader({selectedRoadmapStatus, setSelectedRoadmapStatus, statusArray}) {
 
+    const navigate = useNavigate();
+
     function handleBackClick(event) {
         event.preventDefault();
-        console.log('clicked!')
+        navigate('/');
     }
 
 

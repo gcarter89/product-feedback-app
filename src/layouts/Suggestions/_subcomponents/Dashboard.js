@@ -1,12 +1,15 @@
 import styles from './dashboard.module.scss';
 import CategoryButton from '../../../components/CategoryButton/CategoryButton.js'
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard({featureArray = [], selectedCategory, setSelectedCategory, setDashboardOpen, statusArray = []}) {
     
+    const navigate = useNavigate()
 
     function handleClick(event) {
         event.preventDefault();
         setDashboardOpen(false);
+        navigate('roadmap')
     }
 
     const children = statusArray.map((elem, index) => {

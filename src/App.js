@@ -9,6 +9,7 @@ import Suggestions from './layouts/Suggestions/Suggestions.js';
 import Roadmap from './layouts/Roadmap/Roadmap.js'
 
 function App() {
+    console.log('app refreshed');
 
     const statusArray = [['Planned', jsonData.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', jsonData.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', jsonData.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
 

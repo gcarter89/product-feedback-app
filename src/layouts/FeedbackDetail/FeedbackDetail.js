@@ -13,9 +13,7 @@ export default function FeedbackDetail({data}) {
         selectedFeedbackDetail = elem;
 
     });
-
-    console.log(selectedFeedbackDetail);
-
+    
     return (
         <>
             <FeedbackDetailHeader />

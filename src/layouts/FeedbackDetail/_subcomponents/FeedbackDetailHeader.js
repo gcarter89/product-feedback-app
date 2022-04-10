@@ -1,10 +1,14 @@
 import styles from './feedbackdetailheader.module.scss';
 import {ReactComponent as LeftArrow} from '../../../assets/shared/icon-arrow-left.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function FeedbackDetailHeader() {
 
+    const navigate = useNavigate()
+
     function handle(event) {
-        console.log(event)
+        event.preventDefault();
+        navigate('/')
     }
 
     return (

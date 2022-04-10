@@ -1,6 +1,6 @@
 import EditFeedbackHeader from "./_subcomponents/EditFeedbackHeader.js"
 import EditFeedbackMain from "./_subcomponents/EditFeedbackMain"
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
 
 export default function EditFeedback({data}) {
@@ -8,6 +8,7 @@ export default function EditFeedback({data}) {
     const { id } = useParams();
 
     let selectedFeedback;
+    const navigate = useNavigate()
 
     data.forEach(elem => {
         if (elem.id !== parseInt(id)) {
@@ -17,11 +18,10 @@ export default function EditFeedback({data}) {
 
     });
 
-    console.log(selectedFeedback)
-
     function handleBackClick(e) {
+        e.preventDefault();
         console.log('clicked!')
-        return
+        navigate('/');
     }
     return (
         <>
