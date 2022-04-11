@@ -1,14 +1,27 @@
 import EditFeedbackHeader from "./_subcomponents/EditFeedbackHeader.js"
 import EditFeedbackMain from "./_subcomponents/EditFeedbackMain"
-export default function EditFeedback() {
-    function handleBackClick(e) {
-        console.log('clicked!')
-        return
-    }
+import {useParams, useNavigate} from 'react-router-dom'
+
+
+export default function EditFeedback({data}) {
+
+    const { id } = useParams();
+
+    let selectedFeedback;
+
+    data.forEach(elem => {
+        if (elem.id !== parseInt(id)) {
+            return;
+        }
+        selectedFeedback = elem;
+
+    });
+
+
     return (
         <>
-            <EditFeedbackHeader handle={handleBackClick} />
-            <EditFeedbackMain />
+            <EditFeedbackHeader />
+            <EditFeedbackMain selectedFeedback={selectedFeedback} />
         </>
     )
 }

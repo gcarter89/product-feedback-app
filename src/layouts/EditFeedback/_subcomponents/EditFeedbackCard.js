@@ -3,15 +3,18 @@ import {ReactComponent as EditFeedbackIcon} from '../../../assets/shared/icon-ed
 import EditFeedbackDropdown from './EditFeedbackDropdown.js';
 import { useState } from 'react';
 
-export default function EditFeedbackCard() {
+export default function EditFeedbackCard({selectedFeedback}) {
+
 
     //placeholder
     const categoryArray = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
-
     const statusArray = ['Suggestion', 'Planned', 'In-Progress', 'Live'];
 
-    const [category, setCategory] = useState(categoryArray[0]);
-    const [status, setStatus] = useState(statusArray[0]);
+    const feedbackCategoryIndex = categoryArray.findIndex(element => element.toLowerCase() === selectedFeedback.category.toLowerCase());
+    const feedbackStatusIndex = statusArray.findIndex(element => element.toLowerCase() === selectedFeedback.status.toLowerCase())
+
+    const [category, setCategory] = useState(categoryArray[feedbackCategoryIndex]);
+    const [status, setStatus] = useState(statusArray[feedbackStatusIndex]);
 
     function handleCategorySelect(event, value, setter) {
         event.preventDefault();
@@ -28,14 +31,14 @@ export default function EditFeedbackCard() {
     return (
         <div className={styles.editFeedbackCard}>
             <div className={styles.editFeedbackCard_editFeedbackIcon}><EditFeedbackIcon /></div>
-            <h3>Create New Feedback</h3>
+            <h3>Editing '{selectedFeedback.title}'</h3>
 
             <div className={styles.editFeedbackCard_grouping}>
                 <div className={styles.editFeedbackCard_headerBody}>
                     <h4>Feedback Title</h4>
                     <p className='_body3'>Add a short, descriptive headline</p>
                 </div>
-                <textarea className={`${styles.editFeedbackCard_input} ${styles.editFeedbackCard_input__title}`} />
+                <textarea className={`${styles.editFeedbackCard_input} ${styles.editFeedbackCard_input__title}`} defaultValue={selectedFeedback.title} />
             </div>
 
             <div className={styles.editFeedbackCard_grouping}>
@@ -59,7 +62,7 @@ export default function EditFeedbackCard() {
                     <h4>Feedback Detail</h4>
                     <p className='_body3'>Include any specific comments on what should be improved, added, etc.</p>
                 </div>
-                <textarea className={`${styles.editFeedbackCard_input} ${styles.editFeedbackCard_input__detail}`} />
+                <textarea className={`${styles.editFeedbackCard_input} ${styles.editFeedbackCard_input__detail}`} defaultValue={selectedFeedback.description} />
             </div>
 
             <div className={styles.editFeedbackCard_buttonContainer}>
