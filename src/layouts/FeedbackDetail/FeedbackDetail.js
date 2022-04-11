@@ -16,7 +16,7 @@ export default function FeedbackDetail({data}) {
     
     return (
         <>
-            <FeedbackDetailHeader />
+            <FeedbackDetailHeader id={id} />
             <FeedbackDetailMain selectedFeedbackDetail={selectedFeedbackDetail} />
         </>
     )

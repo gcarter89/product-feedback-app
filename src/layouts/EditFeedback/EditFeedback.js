@@ -8,7 +8,6 @@ export default function EditFeedback({data}) {
     const { id } = useParams();
 
     let selectedFeedback;
-    const navigate = useNavigate()
 
     data.forEach(elem => {
         if (elem.id !== parseInt(id)) {
@@ -18,14 +17,10 @@ export default function EditFeedback({data}) {
 
     });
 
-    function handleBackClick(e) {
-        e.preventDefault();
-        console.log('clicked!')
-        navigate('/');
-    }
+
     return (
         <>
-            <EditFeedbackHeader handle={handleBackClick} />
+            <EditFeedbackHeader />
             <EditFeedbackMain selectedFeedback={selectedFeedback} />
         </>
     )

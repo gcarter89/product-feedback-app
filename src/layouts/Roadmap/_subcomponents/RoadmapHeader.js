@@ -13,6 +13,11 @@ export default function RoadmapHeader({selectedRoadmapStatus, setSelectedRoadmap
         navigate('/');
     }
 
+    function handleNewFeedbackClick(event) {
+        event.preventDefault();
+        navigate('../feedback/new');
+    }
+
 
     return (
         <>
@@ -24,7 +29,7 @@ export default function RoadmapHeader({selectedRoadmapStatus, setSelectedRoadmap
                     </button>
                     <h3>Roadmap</h3>
                 </div>
-                <button className={styles.roadmapHeader_addButton}><h4><PlusIcon /> Add Feedback</h4></button>
+                <button onClick={(e) => handleNewFeedbackClick(e)} className={styles.roadmapHeader_addButton}><h4><PlusIcon /> Add Feedback</h4></button>
             </header>
             <RoadmapNav selectedRoadmapStatus={selectedRoadmapStatus} setSelectedRoadmapStatus={setSelectedRoadmapStatus} statusArray={statusArray}/>
         </>
