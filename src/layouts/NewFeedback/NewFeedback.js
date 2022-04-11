@@ -6,6 +6,24 @@ export default function NewFeedback({data}) {
 
 
     function handleNewFeedbackPost(event, category, description, title) {
+
+        if ((description === '') && (title === '')) {
+            alert('Description and title fields are empty, please try again.');
+            return;
+        }
+
+        if (description === '') {
+            alert('Description is empty, please try again');
+            return;
+        }
+
+        if (title === '') {
+            alert('Title is empty, please try again');
+            return;
+        }
+
+
+
         event.preventDefault();
         const feedbackObject= {
             category: category,
@@ -15,7 +33,7 @@ export default function NewFeedback({data}) {
             title: title,
             upvotes: 0
         };
-        
+
         data.push(feedbackObject)
     }
 
