@@ -4,13 +4,18 @@ import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down
 import {ReactComponent as CheckIcon} from '../../../assets/shared/icon-check.svg';
 import { useState } from 'react';
 
-export default function NewFeedbackCard() {
+export default function NewFeedbackCard({handleNewFeedbackPost}) {
     const [dropdownVisible, setDropdownVisible] = useState(false);
-
-    //placeholder
     const categoryArray = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
-
     const [selection, setSelection] = useState(categoryArray[0]);
+
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+
+    function handleChange(event, setter) {
+        event.preventDefault();
+        setter(event.target.value);
+    }
 
     function handleDropdownClick(event) {
         event.preventDefault();
@@ -33,7 +38,7 @@ export default function NewFeedbackCard() {
                     <h4>Feedback Title</h4>
                     <p className='_body3'>Add a short, descriptive headline</p>
                 </div>
-                <textarea className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__title}`} />
+                <textarea onChange={(e) => handleChange(e, setTitle)} className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__title}`} />
             </div>
 
             <div className={styles.newFeedbackCard_grouping}>
@@ -64,11 +69,11 @@ export default function NewFeedbackCard() {
                     <h4>Feedback Detail</h4>
                     <p className='_body3'>Include any specific comments on what should be improved, added, etc.</p>
                 </div>
-                <textarea className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__detail}`} />
+                <textarea onChange={(e) => handleChange(e, setDescription)} className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__detail}`} />
             </div>
 
             <div className={styles.newFeedbackCard_buttonContainer}>
-                <button className={`${styles.newFeedbackCard_button} ${styles.newFeedbackCard_button__add}`}><h4>Add Feedback</h4></button>
+                <button onClick={(e) => handleNewFeedbackPost(e, selection, description, title)} className={`${styles.newFeedbackCard_button} ${styles.newFeedbackCard_button__add}`}><h4>Add Feedback</h4></button>
                 <button className={`${styles.newFeedbackCard_button} ${styles.newFeedbackCard_button__cancel}`}><h4>Cancel</h4></button>
             </div>
 

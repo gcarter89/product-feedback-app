@@ -5,6 +5,7 @@ import Reply from './Reply.js';
 
 
 export function Comment({comment, border = false}) {
+    console.log(comment)
     
     const image = require('../../../assets/user-images/image-suzanne.jpg');
 
@@ -15,7 +16,12 @@ export function Comment({comment, border = false}) {
         setReplyVisible(prevState => !prevState)
     }
 
-    console.log(comment.replies)
+    function handleReplyClick(event, reply) {
+        event.preventDefault();
+        console.log(reply)
+        // comment.replies.push(reply)
+    }
+
     let replyChildren;
 
     if (comment.replies) {
@@ -40,7 +46,7 @@ export function Comment({comment, border = false}) {
                 </div>
             <p className={`_body3 ${styles.comment_commentBody}`}>{comment.content}</p>
             {comment.replies ? <div className={styles.comment_repliesContainer}>{replyChildren}</div> : null}
-            {replyVisible && <ReplyForm />}
+            {replyVisible && <ReplyForm handleReplyClick={handleReplyClick} />}
         </div>
     )
 }
