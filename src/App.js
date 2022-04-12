@@ -28,7 +28,7 @@ function App() {
                     <Route path="/:testId" element={<Element />}></Route>
                     <Route path="/feedback">
                         <Route path="/feedback/new" element={<NewFeedback data={jsonData.productRequests} />} />  
-                        <Route path=":id" element={<FeedbackDetail data={jsonData.productRequests} />} />
+                        <Route path=":id" element={<FeedbackDetail data={jsonData} />} />
                         <Route path=":id/edit" element={<EditFeedback data={jsonData.productRequests} />} />
                     </Route>
                     <Route path="/roadmap" element={<Roadmap data={jsonData} statusArray={statusArray} />}/>

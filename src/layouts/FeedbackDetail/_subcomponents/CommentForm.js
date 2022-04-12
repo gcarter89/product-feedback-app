@@ -1,18 +1,46 @@
 import styles from './commentform.module.scss';
 import { useState } from 'react';
 
-export default function CommentForm() {
+export default function CommentForm({data, id}) {
 
-    const [characterCount, setCharacterCount] = useState(250)
+    const [characterCount, setCharacterCount] = useState(250);
+    const [content, setContent] = useState('');
 
+    function handleSubmit(event, content, userData, productData, id) {
+        event.preventDefault();
+
+        let commentCount = 0;
+        let commentObject = {};
+        let index;
+
+        for (let i = 0; i < productData.length; i++) {
+            if (productData[i].comments) {
+                commentCount += productData[i].comments.length;
+            }
+
+
+
+            if (productData[i].id === parseInt(id)) {
+                index = i;
+            }
+        }
+        commentObject.id = commentCount + 1;
+        commentObject.content = content;
+        commentObject.user = userData;
+
+        productData[index].comments.push(commentObject);
+    }
 
 
     function handleChange(event, limit = 250) {
         event.preventDefault();
+        setContent(event.target.value);
+
         if (event.target.value.length >= limit) {
             return setCharacterCount(0)
         }
-        return setCharacterCount(limit - event.target.value.length);
+        setCharacterCount(limit - event.target.value.length);
+
     }
 
 
@@ -23,7 +51,7 @@ export default function CommentForm() {
             <textarea onChange={(e) => handleChange(e)} className={styles.commentForm_input} placeholder="Type your comment here" />
             <div className={styles.commentForm_bodyButton}>
                 <p className={`_body3 ${styles.commentForm_body}`}>{characterCount} Characters left</p>
-                <button className={styles.commentForm_button}><h4>Post Comment</h4></button>
+                <button onClick={(e) => handleSubmit(e, content, data.currentUser , data.productRequests, id)} className={styles.commentForm_button}><h4>Post Comment</h4></button>
             </div>
         </div>
     )

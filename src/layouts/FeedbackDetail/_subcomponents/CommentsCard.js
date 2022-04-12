@@ -1,17 +1,18 @@
 import styles from './commentscard.module.scss';
 import { Comment } from './Comment.js';
 
-export default function CommentsCard({data}) {
+export default function CommentsCard({commentData, userData}) {
+    console.log(commentData);
 
-    const children = data.map((elem, index) => {
+    const children = commentData.map((elem, index) => {
         return (
-            (data.length === index + 1) ? <Comment key={index} comment={elem} /> : <Comment key={index} comment={elem} border={true} />
+            (commentData.length === index + 1) ? <Comment key={index} comment={elem} userData={userData} /> : <Comment key={index} comment={elem} userData={userData} border={true} />
         )
     })
 
     return (
         <div className={styles.commentsCard}>
-            <h3 className={styles.commentsCard_commentCount}>{data.length} Comments</h3>
+            <h3 className={styles.commentsCard_commentCount}>{commentData.length} Comments</h3>
             {children}
         </div>
     )
