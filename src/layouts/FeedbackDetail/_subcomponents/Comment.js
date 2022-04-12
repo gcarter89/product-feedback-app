@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Reply from './Reply.js';
 
 
-export function Comment({comment, border = false}) {
+export function Comment({comment, userData, border = false}) {
     
     const image = require('../../../assets/user-images/image-suzanne.jpg');
 
@@ -15,8 +15,22 @@ export function Comment({comment, border = false}) {
         setReplyVisible(prevState => !prevState)
     }
 
-    function handleReplyClick(event, reply) {
+    //reply shape:
+    //content
+    //replyingTo
+    //user
+
+    function handleReplyClick(event, reply, comment, user) {
+        console.log(comment)
         event.preventDefault();
+        let replyObject = {};
+        replyObject.content = reply;
+        replyObject.replyingTo = comment.user.username;
+        replyObject.user = user;
+        if (!comment.replies) {
+            return comment.replies = [replyObject]
+        }
+        return comment.replies.push(replyObject);
     }
 
     let replyChildren;
@@ -43,7 +57,7 @@ export function Comment({comment, border = false}) {
                 </div>
             <p className={`_body3 ${styles.comment_commentBody}`}>{comment.content}</p>
             {comment.replies ? <div className={styles.comment_repliesContainer}>{replyChildren}</div> : null}
-            {replyVisible && <ReplyForm handleReplyClick={handleReplyClick} />}
+            {replyVisible && <ReplyForm user={userData} comment={comment} handleReplyClick={handleReplyClick} />}
         </div>
     )
 }

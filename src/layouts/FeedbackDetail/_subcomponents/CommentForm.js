@@ -38,6 +38,7 @@ export default function CommentForm({data, setData, id}) {
 
         ref.current.value = ''
         setCharacterCount(250);
+        setContent('');
     }
 
 
