@@ -2,7 +2,7 @@ import styles from './commentscard.module.scss';
 import { Comment } from './Comment.js';
 
 export default function CommentsCard({commentData, userData}) {
-    console.log(commentData);
+
 
     const children = commentData.map((elem, index) => {
         return (

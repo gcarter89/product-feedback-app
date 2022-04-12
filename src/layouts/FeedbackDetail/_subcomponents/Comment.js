@@ -4,9 +4,7 @@ import { useState } from 'react';
 import Reply from './Reply.js';
 
 
-export function Comment({comment, userData, border = false}) {
-    console.log(comment);
-    console.log(userData);
+export function Comment({comment, border = false}) {
     
     const image = require('../../../assets/user-images/image-suzanne.jpg');
 
@@ -19,7 +17,6 @@ export function Comment({comment, userData, border = false}) {
 
     function handleReplyClick(event, reply) {
         event.preventDefault();
-        console.log(reply)
     }
 
     let replyChildren;

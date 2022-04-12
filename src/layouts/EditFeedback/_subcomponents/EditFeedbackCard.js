@@ -69,7 +69,6 @@ export default function EditFeedbackCard({selectedFeedback, data}) {
         }
 
         if (!isChanged) {
-            console.log('no change')
             return;
         }
 
