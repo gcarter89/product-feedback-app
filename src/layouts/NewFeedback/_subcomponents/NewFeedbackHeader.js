@@ -9,8 +9,7 @@ export default function NewFeedbackHeader() {
 
     function handleBackClick(event) {
         event.preventDefault();
-        console.log('clicked!')
-        navigate(-1, {replace: true});
+        navigate(-1);
     }
 
     return (

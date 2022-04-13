@@ -4,27 +4,56 @@ import { useState } from 'react';
 import Reply from './Reply.js';
 
 
-export function Comment({comment, border = false}) {
+export function Comment({comment, commentIndex, data, setData, selectedIndex, border = false}) {
     
     const image = require('../../../assets/user-images/image-suzanne.jpg');
 
     const [replyVisible, setReplyVisible] = useState(false);
+    const [replyUser, setReplyUser] = useState(null);
 
     function handleClick(event) {
         event.preventDefault();
         setReplyVisible(prevState => !prevState)
+        setReplyUser(comment.user.username);
     }
 
-    console.log(comment.replies)
+    //reply shape:
+    //content
+    //replyingTo
+    //user
+
+    function handleReplyClick(event, content, data, setter, comment, user, selectedIndex, commentIndex) {
+        event.preventDefault();
+        let replyObject = {};
+        replyObject.content = content;
+        if (!replyUser) {
+            replyObject.replyingTo = comment.user.username;
+        } else {
+            replyObject.replyingTo = replyUser;
+        }
+        
+        replyObject.user = user;
+
+        if (!data.productRequests[selectedIndex].comments[commentIndex].replies) {
+            data.productRequests[selectedIndex].comments[commentIndex].replies = [replyObject]
+            setReplyVisible(false);
+            return setter({...data})
+        }
+        data.productRequests[selectedIndex].comments[commentIndex].replies.push(replyObject);
+        setReplyVisible(false);
+        return setter({...data})
+    }
+
     let replyChildren;
 
-    if (comment.replies) {
-        replyChildren = comment.replies.map((elem, index) => {
+    if (data.productRequests[selectedIndex].comments[commentIndex].replies) {
+        replyChildren = data.productRequests[selectedIndex].comments[commentIndex].replies.map((elem, index) => {
             return (
-                <Reply key={index} reply={elem} setReplyVisible={setReplyVisible} />
+                <Reply key={index} reply={elem} setReplyUser={setReplyUser} setReplyVisible={setReplyVisible} />
             )
         })
     }
+
 
     return (
         <div className={border ? `${styles.comment_commentContainer} ${styles.comment__border}` : styles.comment_commentContainer}>
@@ -40,7 +69,7 @@ export function Comment({comment, border = false}) {
                 </div>
             <p className={`_body3 ${styles.comment_commentBody}`}>{comment.content}</p>
             {comment.replies ? <div className={styles.comment_repliesContainer}>{replyChildren}</div> : null}
-            {replyVisible && <ReplyForm />}
+            {replyVisible && <ReplyForm data={data} setData={setData} selectedIndex={selectedIndex} comment={comment} commentIndex={commentIndex} handleReplyClick={handleReplyClick} />}
         </div>
     )
 }

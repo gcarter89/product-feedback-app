@@ -1,10 +1,10 @@
 import styles from './newfeedbackmain.module.scss';
 import NewFeedbackCard from './NewFeedbackCard.js';
 
-export default function NewFeedbackMain() {
+export default function NewFeedbackMain({handleNewFeedbackPost}) {
     return (
         <main className={styles.newFeedbackMain}>
-            <NewFeedbackCard />
+            <NewFeedbackCard handleNewFeedbackPost={handleNewFeedbackPost} />
         </main>
     )
 }

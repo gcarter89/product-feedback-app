@@ -9,7 +9,6 @@ export default function SuggestionCard({ data, id, clickable = false }) {
 
     function handleCardClick(event) {
         event.preventDefault();
-        console.log(id)
         navigate(`/feedback/${id}`);
     }
 

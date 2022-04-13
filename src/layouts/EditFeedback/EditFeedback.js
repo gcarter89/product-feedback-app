@@ -1,6 +1,6 @@
 import EditFeedbackHeader from "./_subcomponents/EditFeedbackHeader.js"
 import EditFeedbackMain from "./_subcomponents/EditFeedbackMain"
-import {useParams, useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 
 export default function EditFeedback({data}) {
@@ -14,14 +14,14 @@ export default function EditFeedback({data}) {
             return;
         }
         selectedFeedback = elem;
-
     });
+
 
 
     return (
         <>
             <EditFeedbackHeader />
-            <EditFeedbackMain selectedFeedback={selectedFeedback} />
+            <EditFeedbackMain selectedFeedback={selectedFeedback} data={data} />
         </>
     )
 }

@@ -3,21 +3,12 @@ import FeedbackDetailMain from './_subcomponents/FeedbackDetailMain.js';
 import {useParams} from 'react-router-dom';
 
 export default function FeedbackDetail({data}) {
-
     const {id} = useParams();
-    let selectedFeedbackDetail;
-    data.forEach(elem => {
-        if (elem.id !== parseInt(id)) {
-            return;
-        }
-        selectedFeedbackDetail = elem;
 
-    });
-    
     return (
         <>
             <FeedbackDetailHeader id={id} />
-            <FeedbackDetailMain selectedFeedbackDetail={selectedFeedbackDetail} />
+            <FeedbackDetailMain id={id} data={data} />
         </>
     )
 }

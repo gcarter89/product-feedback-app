@@ -6,7 +6,6 @@ export default function Hamburger({dashboardOpen, setDashboardOpen}) {
     function handleClick(event) {
         event.preventDefault();
         setDashboardOpen(!dashboardOpen);
-        console.log(dashboardOpen)
     }
 
     return (
