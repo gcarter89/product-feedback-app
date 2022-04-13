@@ -24,7 +24,7 @@ export default function FeedbackDetailMain({data, id}) {
     return (
         <main className={styles.feedbackDetailMain}>
             <SuggestionCard data={dataTest.productRequests[selectedIndex]} />
-            {dataTest.productRequests[selectedIndex].comments && <CommentsCard commentData={dataTest.productRequests[selectedIndex].comments} userData={dataTest.currentUser} />}
+            {dataTest.productRequests[selectedIndex].comments && <CommentsCard data={dataTest} setData={setDataTest} selectedIndex={selectedIndex} userData={dataTest.currentUser} />}
             <CommentForm data={dataTest} setData={setDataTest} id={id} />
         </main>
     )
