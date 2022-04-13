@@ -9,6 +9,7 @@ export function Comment({comment, userData, border = false}) {
     const image = require('../../../assets/user-images/image-suzanne.jpg');
 
     const [replyVisible, setReplyVisible] = useState(false);
+    const [replyUser, setReplyUser] = useState(null);
 
     function handleClick(event) {
         event.preventDefault();
@@ -20,13 +21,18 @@ export function Comment({comment, userData, border = false}) {
     //replyingTo
     //user
 
-    function handleReplyClick(event, reply, comment, user) {
-        console.log(comment)
+    function handleReplyClick(event, content, comment, user) {
         event.preventDefault();
         let replyObject = {};
-        replyObject.content = reply;
-        replyObject.replyingTo = comment.user.username;
+        replyObject.content = content;
+        if (!replyUser) {
+            replyObject.replyingTo = comment.user.username;
+        } else {
+            replyObject.replyingTo = replyUser;
+        }
+        
         replyObject.user = user;
+
         if (!comment.replies) {
             return comment.replies = [replyObject]
         }
@@ -38,7 +44,7 @@ export function Comment({comment, userData, border = false}) {
     if (comment.replies) {
         replyChildren = comment.replies.map((elem, index) => {
             return (
-                <Reply key={index} reply={elem} setReplyVisible={setReplyVisible} />
+                <Reply key={index} reply={elem} setReplyUser={setReplyUser} setReplyVisible={setReplyVisible} />
             )
         })
     }

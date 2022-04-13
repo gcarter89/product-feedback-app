@@ -1,12 +1,14 @@
 import styles from './reply.module.scss';
 
-export default function Reply({reply, setReplyVisible}) {
+export default function Reply({reply, setReplyUser, setReplyVisible}) {
+    
 
     const image = require('../../../assets/user-images/image-suzanne.jpg');
 
     function handleClick(event) {
         event.preventDefault();
-        setReplyVisible(prevState => !prevState)
+        setReplyVisible(prevState => !prevState);
+        setReplyUser(reply.user.username);
     }
 
     return (

@@ -21,8 +21,6 @@ export default function FeedbackDetailMain({data, id}) {
         selectedIndex = index;
     });
 
-    console.log(dataTest.productRequests[selectedIndex]);
-
     return (
         <main className={styles.feedbackDetailMain}>
             <SuggestionCard data={dataTest.productRequests[selectedIndex]} />
