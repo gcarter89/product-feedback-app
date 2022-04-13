@@ -36,6 +36,7 @@ export function Comment({comment, commentIndex, data, setData, selectedIndex, bo
 
         if (!data.productRequests[selectedIndex].comments[commentIndex].replies) {
             data.productRequests[selectedIndex].comments[commentIndex].replies = [replyObject]
+            setReplyVisible(false);
             return setter({...data})
         }
         data.productRequests[selectedIndex].comments[commentIndex].replies.push(replyObject);
