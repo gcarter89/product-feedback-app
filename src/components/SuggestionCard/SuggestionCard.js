@@ -24,7 +24,7 @@ export default function SuggestionCard({ data, id, clickable = false }) {
             </div>
             <div className={styles.suggestionCard_commentsUpvotes}>
                 <UpvoteTab count={data.upvotes ? data.upvotes : 0}  />
-                <CommentsTab count={data.comments ? data.comments.length : 0} />
+                <CommentsTab id={id} count={data.comments ? data.comments.length : 0} />
             </div>
 
 

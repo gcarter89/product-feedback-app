@@ -8,9 +8,23 @@
     align-items: center;
     padding: 5px 13px 5px 16px;
     cursor: pointer;
+        path {
+            stroke: #4661E6;
+        }
     &_text {
         font-size: 13px;
         font-weight: 700;
         margin-left: 10px;
     }
+    &__active {
+        background-color: #4661E6 !important;
+        color: #FFFFFF !important;
+        path {
+            stroke: #FFFFFF;
+        }
+    }
+}
+
+.upvoteTab:hover {
+    background-color: #CFD7FF;
 }
