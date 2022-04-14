@@ -5,7 +5,7 @@ import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
 
 
-export default function EditFeedbackCard({selectedFeedback, data}) {
+export default function EditFeedbackCard({selectedFeedback, data, setData}) {
 
     //placeholder
     const categoryArray = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
@@ -42,7 +42,7 @@ export default function EditFeedbackCard({selectedFeedback, data}) {
     const navigate = useNavigate();
 
 
-    function handleEdit(event, data, selectedFeedback, title, category, status, description) {
+    function handleEdit(event, data, selectedFeedback, title, category, status, description, setter) {
         event.preventDefault();
         let isChanged = false;
 
@@ -72,24 +72,26 @@ export default function EditFeedbackCard({selectedFeedback, data}) {
             return;
         }
 
-        const index = data.indexOf(selectedFeedback);
+        const index = data.productRequests.indexOf(selectedFeedback);
 
         if (updateObject.title) {
-            data[index].title = updateObject.title;
+            data.productRequests[index].title = updateObject.title;
         }
 
         if (updateObject.category) {
-            data[index].category = updateObject.category;
+            data.productRequests[index].category = updateObject.category;
         }
 
         if (updateObject.status) {
-            data[index].status = updateObject.status;
+            data.productRequests[index].status = updateObject.status.toLowerCase();
         }
 
         if (updateObject.description) {
-            data[index].description = updateObject.description;
+            data.productRequests[index].description = updateObject.description;
         }
-
+        setter({...data})
+        console.log(updateObject)
+        console.log(data.productRequests[index])
     }
 
     function handleDelete(event, data, selectedFeedback) {
@@ -142,9 +144,9 @@ export default function EditFeedbackCard({selectedFeedback, data}) {
             </div>
 
             <div className={styles.editFeedbackCard_buttonContainer}>
-                <button onClick={(e) => handleEdit(e, data, selectedFeedback, title, category, status, description)} className={`${styles.editFeedbackCard_button} ${styles.editFeedbackCard_button__add}`}><h4>Save Changes</h4></button>
+                <button onClick={(e) => handleEdit(e, data, selectedFeedback, title, category, status, description, setData)} className={`${styles.editFeedbackCard_button} ${styles.editFeedbackCard_button__add}`}><h4>Save Changes</h4></button>
                 <button className={`${styles.editFeedbackCard_button} ${styles.editFeedbackCard_button__cancel}`}><h4>Cancel</h4></button>
-                <button onClick={(e) => handleDelete(e, data, selectedFeedback)} className={`${styles.editFeedbackCard_button} ${styles.editFeedbackCard_button__delete}`}><h4>Delete</h4></button>
+                <button onClick={(e) => handleDelete(e, data.productRequests, selectedFeedback)} className={`${styles.editFeedbackCard_button} ${styles.editFeedbackCard_button__delete}`}><h4>Delete</h4></button>
             </div>
         </div>
     )

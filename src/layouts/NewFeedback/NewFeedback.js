@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import NewFeedbackHeader from './_subcomponents/NewFeedbackHeader.js';
 import NewFeedbackMain from './_subcomponents/NewFeedbackMain.js';
 
-export default function NewFeedback({data}) {
+export default function NewFeedback({data, setData}) {
 
     const navigate = useNavigate();
 
@@ -25,15 +25,16 @@ export default function NewFeedback({data}) {
         }
 
         const feedbackObject= {
+            id: data.productRequests.length + 1,
+            title: title,
             category: category,
             description: description,
-            id: data.length + 1,
             status: "suggestion",
-            title: title,
             upvotes: 0
         };
 
-        data.push(feedbackObject);
+        data.productRequests.push(feedbackObject);
+        setData({...data});
         navigate('/');
     }
 

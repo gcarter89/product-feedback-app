@@ -6,9 +6,11 @@ export default function FeedbackDetailHeader({id}) {
 
     const navigate = useNavigate()
 
+    //to-do figure out how to handle different destinations conditionally?
+
     function handleBackClick(event) {
         event.preventDefault();
-        navigate('/')
+        navigate(-1)
     }
 
     function handleEditNavigate(event, id) {

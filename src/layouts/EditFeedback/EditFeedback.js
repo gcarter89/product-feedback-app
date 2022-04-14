@@ -3,13 +3,13 @@ import EditFeedbackMain from "./_subcomponents/EditFeedbackMain"
 import {useParams} from 'react-router-dom'
 
 
-export default function EditFeedback({data}) {
+export default function EditFeedback({data, setData}) {
 
     const { id } = useParams();
 
     let selectedFeedback;
 
-    data.forEach(elem => {
+    data.productRequests.forEach(elem => {
         if (elem.id !== parseInt(id)) {
             return;
         }
@@ -21,7 +21,7 @@ export default function EditFeedback({data}) {
     return (
         <>
             <EditFeedbackHeader />
-            <EditFeedbackMain selectedFeedback={selectedFeedback} data={data} />
+            <EditFeedbackMain selectedFeedback={selectedFeedback} data={data} setData={setData} />
         </>
     )
 }

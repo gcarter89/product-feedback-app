@@ -16,6 +16,15 @@
         padding-bottom: 14px;
     }
 
+    &_headerGrouping {
+        cursor:pointer;
+    }
+    &_headerGrouping:hover {
+        h4 {
+            color: #4661E6;
+        }
+    }
+
     &_title {
         font-size: 13px;
         color: #3A4374;

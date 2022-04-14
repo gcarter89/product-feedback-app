@@ -7,11 +7,32 @@ import EditFeedback from './layouts/EditFeedback/EditFeedback.js';
 import FeedbackDetail from './layouts/FeedbackDetail/FeedbackDetail.js';
 import Suggestions from './layouts/Suggestions/Suggestions.js';
 import Roadmap from './layouts/Roadmap/Roadmap.js'
+import { useEffect, useState } from 'react';
 
 function App() {
-    console.log('app refreshed');
+    
+    const [data, setData]= useState(null);
+    // localStorage.clear();
 
-    const statusArray = [['Planned', jsonData.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', jsonData.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', jsonData.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
+    useEffect(() => {
+        if (!localStorage.getItem('data')) {
+            console.log(localStorage)
+            localStorage.setItem('data', JSON.stringify(jsonData))
+        }
+
+        if (!data) {
+            const storageString = localStorage.getItem('data');
+            setData(JSON.parse(storageString));
+        }
+
+        localStorage.setItem('data', JSON.stringify(data));
+    },[data])
+
+
+    let statusArray;
+    if (data) {
+        statusArray = [['Planned', data.productRequests.filter(elem => elem.status === 'planned').length, 'Ideas prioritized for research'], ['In-Progress', data.productRequests.filter(elem => elem.status === 'in-progress').length, 'Currently in Development'], ['Live', data.productRequests.filter(elem => elem.status === 'live').length, 'Released features']];
+    }
 
     const Element = () => {
         const {testId} = useParams()
@@ -24,14 +45,14 @@ function App() {
         <div className="App">
                 <Router>
                 <Routes>
-                    <Route index element={<Suggestions data={jsonData} statusArray={statusArray} />}/>
+                     <Route index element={data && <Suggestions data={data} statusArray={statusArray} />}/>
                     <Route path="/:testId" element={<Element />}></Route>
                     <Route path="/feedback">
-                        <Route path="/feedback/new" element={<NewFeedback data={jsonData.productRequests} />} />  
-                        <Route path=":id" element={<FeedbackDetail data={jsonData} />} />
-                        <Route path=":id/edit" element={<EditFeedback data={jsonData.productRequests} />} />
+                        <Route path="/feedback/new" element={data && <NewFeedback data={data} setData={setData} />} />  
+                        <Route path=":id" element={data && <FeedbackDetail data={data} setData={setData} />} />
+                        <Route path=":id/edit" element={data && <EditFeedback data={data} setData={setData} />} />
                     </Route>
-                    <Route path="/roadmap" element={<Roadmap data={jsonData} statusArray={statusArray} />}/>
+                    <Route path="/roadmap" element={data && <Roadmap data={data} statusArray={statusArray} />}/>
                 </Routes>
                 </Router>
         </div>

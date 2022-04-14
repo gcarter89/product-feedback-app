@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 
 
 export default function Suggestions({data, statusArray }) {
-
     const [dashboardOpen, setDashboardOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('all');
