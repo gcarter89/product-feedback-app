@@ -23,7 +23,6 @@ function App() {
             const storageString = localStorage.getItem('data');
             setData(JSON.parse(storageString));
         }
-        console.log('whuuut');
         localStorage.setItem('data', JSON.stringify(data));
     },[data])
 
