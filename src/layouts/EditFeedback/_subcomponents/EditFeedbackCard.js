@@ -90,8 +90,6 @@ export default function EditFeedbackCard({selectedFeedback, data, setData}) {
             data.productRequests[index].description = updateObject.description;
         }
         setter({...data})
-        console.log(updateObject)
-        console.log(data.productRequests[index])
     }
 
     function handleDelete(event, data, selectedFeedback) {

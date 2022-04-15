@@ -5,8 +5,6 @@ import styles from './feedbackdetailmain.module.scss';
 
 export default function FeedbackDetailMain({data, setData, id}) {
     let selectedIndex;
-
-
     data.productRequests.forEach((elem, index) => {
         if (elem.id !== parseInt(id)) {
             return;
@@ -16,7 +14,7 @@ export default function FeedbackDetailMain({data, setData, id}) {
 
     return (
         <main className={styles.feedbackDetailMain}>
-            <SuggestionCard data={data.productRequests[selectedIndex]} />
+            <SuggestionCard cardData={data.productRequests[selectedIndex]} data={data} setData={setData} id={id} />
             {data.productRequests[selectedIndex].comments && <CommentsCard data={data} setData={setData} selectedIndex={selectedIndex} userData={data.currentUser} />}
             <CommentForm data={data} setData={setData} id={id} />
         </main>

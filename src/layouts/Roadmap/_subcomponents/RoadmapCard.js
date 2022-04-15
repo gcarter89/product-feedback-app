@@ -3,9 +3,27 @@ import CategoryTab from '../../../components/CategoryTab/CategoryTab.js';
 import CommentsTab from '../../../components/CommentsTab/CommentsTab.js';
 import UpvoteTab from '../../../components/UpvoteTab/UpvoteTab.js';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-export default function RoadmapCard({cardData, id})  {
-    const navigate = useNavigate()
+export default function RoadmapCard({data, setData, cardData, id})  {
+
+    let selectedIndex;
+    data.productRequests.forEach((elem, index) => {
+        if (elem.id === parseInt(id)) {
+            selectedIndex = index;
+        }
+    });
+
+    const navigate = useNavigate();
+    const [upvotes, setUpvotes] = useState(data.productRequests[selectedIndex].upvotes ? data.productRequests[selectedIndex].upvotes : 0);
+
+    useEffect(() => {
+        if (data.productRequests[selectedIndex].upvotes !== upvotes) {
+            data.productRequests[selectedIndex].upvotes = upvotes;
+            return setData({...data});
+        }
+})
+
 
     function handleClick(event, id) {
         event.preventDefault();
@@ -24,7 +42,7 @@ export default function RoadmapCard({cardData, id})  {
                     <CategoryTab category={cardData.category} />
                 </div>
                 <div className={styles.roadmapCard_commentsUpvote}>
-                    <UpvoteTab count={!cardData.upvotes ? 0 : cardData.upvotes} />
+                    <UpvoteTab upvotes={upvotes ? upvotes : 0} setUpvotes={setUpvotes} />
                     <CommentsTab count={!cardData.comments ? 0 : cardData.comments.length} id={id} />
                 </div>
             </div>
@@ -44,7 +62,7 @@ export default function RoadmapCard({cardData, id})  {
                     <CategoryTab category={cardData.category} />
                 </div>
                 <div className={styles.roadmapCard_commentsUpvote}>
-                    <UpvoteTab count={!cardData.upvotes ? 0 : cardData.upvotes} />
+                    <UpvoteTab upvotes={upvotes ? upvotes : 0} setUpvotes={setUpvotes} />
                     <CommentsTab count={!cardData.comments ? 0 : cardData.comments.length} id={id} />
                 </div>
             </div>
@@ -64,7 +82,7 @@ export default function RoadmapCard({cardData, id})  {
                     <CategoryTab category={cardData.category} />
                 </div>
                 <div className={styles.roadmapCard_commentsUpvote}>
-                    <UpvoteTab count={!cardData.upvotes ? 0 : cardData.upvotes} />
+                    <UpvoteTab upvotes={upvotes ? upvotes : 0} setUpvotes={setUpvotes} />
                     <CommentsTab count={!cardData.comments ? 0 : cardData.comments.length} id={id} />
                 </div>
             </div>

@@ -8,7 +8,6 @@ export default function Reply({reply, setReplyUser, setReplyVisible}) {
     function handleClick(event) {
         event.preventDefault();
         setReplyVisible(prevState => !prevState);
-        console.log(reply.user.username);
         setReplyUser(reply.user.username);
     }
 
