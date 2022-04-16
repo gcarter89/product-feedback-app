@@ -101,6 +101,11 @@
             height: 120px;
         }
     }
+    &_error {
+        font-size: 13px;
+        color: #D73737;
+    }
+
     &_buttonContainer {
         display: flex;
         flex-direction: column;

@@ -21,6 +21,10 @@ export default function EditFeedbackCard({selectedFeedback, data, setData}) {
     const [title, setTitle] = useState(selectedFeedback.title);
     const [description, setDescription] = useState(selectedFeedback.description);
 
+    const [titleError, setTitleError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
+
+
 
     function handleCategorySelect(event, value, setter) {
         event.preventDefault();
@@ -45,6 +49,27 @@ export default function EditFeedbackCard({selectedFeedback, data, setData}) {
     function handleEdit(event, data, selectedFeedback, title, category, status, description, setter) {
         event.preventDefault();
         let isChanged = false;
+
+        if ((description === '') && (title === '')) {
+            setDescriptionError(true);
+            setTitleError(true);
+            return;
+        }
+
+        if (title === '') {
+            setDescriptionError(false);
+            setTitleError(true);
+            return;
+        }
+
+        if (description === '') {
+            setTitleError(false);
+            setDescriptionError(true);
+            return;
+        }
+
+        setDescriptionError(false);
+        setTitleError(false);
 
         const updateObject = {};
 
@@ -115,6 +140,7 @@ export default function EditFeedbackCard({selectedFeedback, data, setData}) {
                     <p className='_body3'>Add a short, descriptive headline</p>
                 </div>
                 <textarea onChange={(e) => handleChange(e, setTitle)} className={`${styles.editFeedbackCard_input} ${styles.editFeedbackCard_input__title}`} defaultValue={selectedFeedback.title} />
+                {titleError && <p className={styles.editFeedbackCard_error}>Can't be empty</p>}
             </div>
 
             <div className={styles.editFeedbackCard_grouping}>
@@ -139,6 +165,7 @@ export default function EditFeedbackCard({selectedFeedback, data, setData}) {
                     <p className='_body3'>Include any specific comments on what should be improved, added, etc.</p>
                 </div>
                 <textarea onChange={(e) => handleChange(e, setDescription)} className={`${styles.editFeedbackCard_input} ${styles.editFeedbackCard_input__detail}`} defaultValue={selectedFeedback.description} />
+                {descriptionError && <p className={styles.editFeedbackCard_error}>Can't be empty</p>}
             </div>
 
             <div className={styles.editFeedbackCard_buttonContainer}>
