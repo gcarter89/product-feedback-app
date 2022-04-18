@@ -14,8 +14,6 @@ export default function EditFeedbackCard({selectedFeedback, data, setData}) {
     const feedbackCategoryIndex = categoryArray.findIndex(element => element.toLowerCase() === selectedFeedback.category.toLowerCase());
     const feedbackStatusIndex = statusArray.findIndex(element => element.toLowerCase() === selectedFeedback.status.toLowerCase())
 
-
-    //these are ok.
     const [category, setCategory] = useState(categoryArray[feedbackCategoryIndex]);
     const [status, setStatus] = useState(statusArray[feedbackStatusIndex]);
     const [title, setTitle] = useState(selectedFeedback.title);
