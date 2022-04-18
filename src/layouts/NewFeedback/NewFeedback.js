@@ -1,4 +1,5 @@
 // import styles from './newfeedback.module.scss';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NewFeedbackHeader from './_subcomponents/NewFeedbackHeader.js';
 import NewFeedbackMain from './_subcomponents/NewFeedbackMain.js';
@@ -6,23 +7,33 @@ import NewFeedbackMain from './_subcomponents/NewFeedbackMain.js';
 export default function NewFeedback({data, setData}) {
 
     const navigate = useNavigate();
+    const [descriptionError, setDescriptionError] = useState(false);
+    const [titleError, setTitleError] = useState(false);
 
 
     function handleNewFeedbackPost(event, category, description, title) {
         event.preventDefault();
 
         if ((description === '') && (title === '')) {
-            return alert('Description and title fields are empty, please try again.');
-            
+            setDescriptionError(true);
+            setTitleError(true);
+            return;
         }
 
         if (description === '') {
-            return alert('Description is empty, please try again');
+            setTitleError(false);
+            setDescriptionError(true);
+            return;
+            
         }
 
         if (title === '') {
-            return alert('Title is empty, please try again');
+            setDescriptionError(false);
+            setTitleError(true);
+            return;
         }
+        setDescriptionError(false);
+        setTitleError(false);
 
         const feedbackObject= {
             id: data.productRequests.length + 1,
@@ -41,7 +52,7 @@ export default function NewFeedback({data, setData}) {
     return (
         <>
             <NewFeedbackHeader />
-            <NewFeedbackMain handleNewFeedbackPost={handleNewFeedbackPost} />
+            <NewFeedbackMain handleNewFeedbackPost={handleNewFeedbackPost} titleError={titleError} descriptionError={descriptionError} />
         </>
 
     )

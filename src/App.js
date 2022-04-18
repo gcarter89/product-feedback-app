@@ -16,7 +16,6 @@ function App() {
 
     useEffect(() => {
         if (!localStorage.getItem('data')) {
-            console.log(localStorage)
             localStorage.setItem('data', JSON.stringify(jsonData))
         }
 
@@ -24,7 +23,6 @@ function App() {
             const storageString = localStorage.getItem('data');
             setData(JSON.parse(storageString));
         }
-
         localStorage.setItem('data', JSON.stringify(data));
     },[data])
 
@@ -45,14 +43,14 @@ function App() {
         <div className="App">
                 <Router>
                 <Routes>
-                     <Route index element={data && <Suggestions data={data} statusArray={statusArray} />}/>
+                     <Route index element={data && <Suggestions data={data} setData={setData} statusArray={statusArray} />}/>
                     <Route path="/:testId" element={<Element />}></Route>
                     <Route path="/feedback">
                         <Route path="/feedback/new" element={data && <NewFeedback data={data} setData={setData} />} />  
                         <Route path=":id" element={data && <FeedbackDetail data={data} setData={setData} />} />
                         <Route path=":id/edit" element={data && <EditFeedback data={data} setData={setData} />} />
                     </Route>
-                    <Route path="/roadmap" element={data && <Roadmap data={data} statusArray={statusArray} />}/>
+                    <Route path="/roadmap" element={data && <Roadmap data={data} setData={setData} statusArray={statusArray} />}/>
                 </Routes>
                 </Router>
         </div>

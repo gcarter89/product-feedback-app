@@ -4,7 +4,8 @@ import {ReactComponent as DownIcon} from '../../../assets/shared/icon-arrow-down
 import {ReactComponent as CheckIcon} from '../../../assets/shared/icon-check.svg';
 import { useState } from 'react';
 
-export default function NewFeedbackCard({handleNewFeedbackPost}) {
+export default function NewFeedbackCard({handleNewFeedbackPost, titleError, descriptionError}) {
+    console.log(descriptionError);
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const categoryArray = ['Feature', 'UI', 'UX', 'Enhancement', 'Bug'];
     const [selection, setSelection] = useState(categoryArray[0]);
@@ -39,6 +40,7 @@ export default function NewFeedbackCard({handleNewFeedbackPost}) {
                     <p className='_body3'>Add a short, descriptive headline</p>
                 </div>
                 <textarea onChange={(e) => handleChange(e, setTitle)} className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__title}`} />
+                {titleError && <p className={styles.newFeedbackCard_error}>Can't be empty</p>}
             </div>
 
             <div className={styles.newFeedbackCard_grouping}>
@@ -70,6 +72,7 @@ export default function NewFeedbackCard({handleNewFeedbackPost}) {
                     <p className='_body3'>Include any specific comments on what should be improved, added, etc.</p>
                 </div>
                 <textarea onChange={(e) => handleChange(e, setDescription)} className={`${styles.newFeedbackCard_input} ${styles.newFeedbackCard_input__detail}`} />
+                {descriptionError && <p className={styles.newFeedbackCard_error}>Can't be empty</p>}
             </div>
 
             <div className={styles.newFeedbackCard_buttonContainer}>
